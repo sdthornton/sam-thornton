@@ -1,8 +1,6 @@
 Personalsite::Application.routes.draw do
   root 'home#index'
 
-  get '/home' => 'home#index'
-
   get 'contact' => 'contact#new'
   post 'contact' => 'contact#create'
 
