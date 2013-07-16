@@ -1,0 +1,6 @@
+<article class="post_preview">
+  <p><strong><%= post.title %></strong></p>
+  <p><%= post.text %></p>
+  <p><%= link_to 'Show', show_post_path(post.url), class: 'view_post' %> | <%= link_to 'Edit', edit_post_path(post.id) %> | <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %></p>
+</article>
+<hr>
