@@ -1,6 +1,6 @@
 <p><h1><%= @post.title %></h1></p>
 <p><%= @post.text %></p>
-<p><%= link_to 'Back', blog_path %> | <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %></p>
+<p><%= link_to 'Back', blog_path %> <%= render 'admin_links', post: @post %></p>
 <br>
 <% unless @post.comments.blank? %>
   <p>

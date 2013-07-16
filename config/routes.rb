@@ -6,7 +6,7 @@ Personalsite::Application.routes.draw do
   get 'contact' => 'contact#new'
   post 'contact' => 'contact#create'
 
-  devise_for :admins
+  devise_for :admins, skip: [:registrations, :passwords]
 
   devise_scope :admin do
     get "admin", to: "devise/sessions#new"
