@@ -3,18 +3,18 @@
 <head>
   <title>Personalsite</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% flash.each do |flash, message| %>
+  	<div class="flash flash-<%= flash %>"><%= message %></div>
+  <% end %>
 
-<% flash.each do |flash, message| %>
-	<div class="flash flash-<%= flash %>"><%= message %></div>
-<% end %>
+  <%= render "/shared/navigation" %>
 
-<%= render "/shared/navigation" %>
+  <%= yield %>
 
-<%= yield %>
-
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= yield :javascript %>
 </body>
 </html>
