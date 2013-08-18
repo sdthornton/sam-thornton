@@ -7,8 +7,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
-    @post.url = @post.title.parameterize.underscore.to_s
     @post.save
     redirect_to show_post_path(@post.url)
   end

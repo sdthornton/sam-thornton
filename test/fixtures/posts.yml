@@ -1,9 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  text: MyText
+  title: "My Post"
+  text: "My text"
 
 two:
-  title: MyString
-  text: MyText
+  title: "My Post 2"
+  text: "My text again"
+
+three:
+  title: "My Post 3"
+  text: "My text a third time"
+
+four:
+  title: "My Post 4"
+  text: "My text a fourth time"
+
+five:
+  title: "My Post 5"
+  text: "My text a fifth time"
