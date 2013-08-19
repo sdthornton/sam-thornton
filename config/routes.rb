@@ -8,15 +8,13 @@ Personalsite::Application.routes.draw do
   devise_for :admins, skip: [:registrations, :passwords]
 
   devise_scope :admin do
-    get "admin", to: "devise/sessions#new"
+    get 'admin', to: 'devise/sessions#new'
   end
 
   get 'blog' => 'blog#index'
   get 'blog/:url' => 'blog#show', as: :show_post
   scope 'blog' do
-    resources :posts, except: :index do
-      resources :comments
-    end
+    resources :posts, except: :index
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

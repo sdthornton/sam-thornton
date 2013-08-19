@@ -3,16 +3,22 @@ class PostsController < ApplicationController
   before_filter :authenticate_admin!
 
   def new
+    @post = Post.new
   end
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to show_post_path(@post.url)
+
+    if @post.save
+      redirect_to @post
+    else
+      render 'new'
+    end
   end
 
   def show
     @post = Post.find(params[:id])
+    redirect_to show_post_path(@post.url)
   end
 
   def edit

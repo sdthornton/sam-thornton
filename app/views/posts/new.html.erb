@@ -1,4 +1,4 @@
-<%= simple_form_for :post, url: posts_path do |f| %>
+<%= simple_form_for @post do |f| %>
   <%= f.input :title, placeholder: "Title", label: false %>
   <%= f.input :text, placeholder: "Content", label: false %>
   <%= f.submit "Publish Post" %>

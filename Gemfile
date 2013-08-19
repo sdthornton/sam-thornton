@@ -9,6 +9,9 @@ gem 'rails', '4.0.0'
 gem "pg", platform: :ruby
 gem 'activerecord-jdbcpostgresql-adapter', github: 'jruby/activerecord-jdbc-adapter', platform: :jruby
 
+# Use puma as the app server
+gem 'puma'
+
 # Use Sass for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -47,8 +50,8 @@ gem "devise", "~> 3.0.2"
 # Paperclip for Uploading Files
 gem "paperclip", "~> 3.5.1"
 
-# Use puma as the app server
-gem 'puma'
+# Pagination
+gem "kaminari", "~> 0.14.1"
 
 group :development do
   gem 'capistrano'
