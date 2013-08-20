@@ -7,10 +7,6 @@ Personalsite::Application.routes.draw do
 
   devise_for :admins, skip: [:registrations, :passwords]
 
-  devise_scope :admin do
-    get 'admin', to: 'devise/sessions#new'
-  end
-
   get 'blog' => 'blog#index'
   get 'blog/:url' => 'blog#show', as: :show_post
   scope 'blog' do
