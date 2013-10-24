@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 # Use jruby with Ruby 1.9.3
-ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
+ruby '1.9.3', engine: 'jruby', engine_version: '1.7.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
 gem 'pg', platform: :ruby
-gem 'activerecord-jdbcpostgresql-adapter', github: 'jruby/activerecord-jdbc-adapter', platform: :jruby
+gem 'activerecord-jdbcpostgresql-adapter', platform: :jruby
 
 # Use puma as the app server
 gem 'puma'
@@ -40,9 +40,6 @@ gem 'simple_form'
 
 # Pony mailer
 gem 'pony'
-
-# CKEditor for Blog posts
-gem 'ckeditor'
 
 # Devise for Users
 gem "devise", "~> 3.0.2"

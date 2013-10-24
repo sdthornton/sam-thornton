@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if @post.update(params[:post].permit(:title, :text, :url))
+    if @post.update(params[:post].permit(:title, :content, :url))
       redirect_to show_post_path(@post.url)
     else
       render 'edit'
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :text, :url)
+      params.require(:post).permit(:title, :content, :url)
     end
 
 end

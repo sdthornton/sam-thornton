@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	validates :title, :text, :url, presence: true
+	validates :title, :content, :url, presence: true
   validates :title, :url, uniqueness: true
 
   before_validation :build_url

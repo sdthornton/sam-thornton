@@ -1,4 +1,4 @@
-namespace 'Samuel', (exports) ->
+namespace 'Site', (exports) ->
   class exports.Disqus
 
     constructor: ->

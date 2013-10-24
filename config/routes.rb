@@ -1,5 +1,4 @@
 Personalsite::Application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
   root 'home#index'
 
   get 'contact' => 'contact#new'

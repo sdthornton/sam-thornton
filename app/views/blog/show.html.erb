@@ -1,6 +1,4 @@
-<h1><%= @post.title %></h1>
-<div class="blog_post"><%= @post.text %></div>
-<p><%= link_to 'Back', blog_path %> <%= render 'admin_links', post: @post %></p>
+<%= render "post", post: @post %>
 <br>
 
 <p>
