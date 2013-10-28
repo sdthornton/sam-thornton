@@ -47,8 +47,11 @@ namespace 'Site', (exports) ->
             selection.removeAllRanges()
             selection.addRange(newRange)
 
-    setState: (state) ->
-      document.execCommand(state, false, null)
+    setState: (state, info) ->
+      document.execCommand(state, false, info)
+
+    getState: (state) ->
+      document.queryCommandState(state)
 
     createEditElements: ->
       @editElementsWrap =
@@ -58,24 +61,74 @@ namespace 'Site', (exports) ->
         })
       @editElementsWrap.insertBefore(@editor)
 
-      @makeBold = "<button id='make_bold' class='make_bold edit_button simple_state' rel='bold'>B</button>"
-      @makeItalic = "<button id='make_italic' class='make_italic edit_button simple_state' rel='italic'>i</button>"
+      @editElements =
+        bold: "<button id='make_bold' class='make_bold edit_button state_change' rel='bold'>B</button>"
+        italic: "<button id='make_italic' class='make_italic edit_button state_change' rel='italic'>i</button>"
+        strikeThrough: "<button id='make_strike' class='make_strike edit_button state_change' rel='strikeThrough'>S&#822</button>"
+        underline: "<button id='make_underline' class='make_underline edit_button state_change' rel='underline'>U&#818</button>"
+        orderedList: "<button id='make_ordered_list' class='make_ordered_list edit_button state_change' rel='insertorderedlist'>OL</button>"
+        unorderedList: "<button id='make_unordered_list' class='make_unordered_list edit_button state_change' rel='insertunorderedlist'>UL</button>"
+        justifyLeft: "<button id='make_justify_left' class='make_justify_left edit_button state_change' rel='justifyleft'>Left</button>"
+        justifyRight: "<button id='make_justify_right' class='make_justify_right edit_button state_change' rel='justifyright'>Right</button>"
+        justifyCenter: "<button id='make_justify_center' class='make_justify_center edit_button state_change' rel='justifycenter'>Center</button>"
+        justifyFull: "<button id='make_justify_full' class='make_justify_full edit_button state_change' rel='justifyfull'>Full</button>"
+        subscript: "<button id='make_subscript' class='make_subscript edit_button state_change' rel='subscript'>Sub</button>"
+        superscript: "<button id='make_superscript' class='make_superscript edit_button state_change' rel='superscript'>Super</button>"
+        createLink: "<button id='make_link' class='make_link edit_button state_change has_prompt' rel='createlink' data-promptinfo='{ \"title\": \"Write the URL here\", \"text\": \"http://\" }''>Link</button>"
+        removeLink: "<button id='make_unlink' class='make_unlink edit_button state_change' rel='unlink'>Unlink</button>"
+        quote: "<button id='make_quote' class='make_quote edit_button state_change format_block' rel='formatblock' data-blockformat='BLOCKQUOTE'>Quote</button>"
+        heading: """
+          <select id='make_heading' class='make_heading edit_dropdown state_change format_block' rel='formatblock'>
+            <option value='h1'>Heading 1</option>
+            <option value='h2'>Heading 2</option>
+          </select>"""
 
-      @editElementsWrap.html(@makeBold + @makeItalic)
+      $.each @editElements, (i, val) =>
+        @editElementsWrap.append(val)
 
     bindEditElements: ->
-      $('button.simple_state').on 'click.changeState', (e) =>
+      $('button.edit_button').on 'click.changeState', (e) =>
         e.preventDefault()
         e.stopPropagation()
         state = $(e.target).attr('rel')
-        @setState(state)
+
+        if $(e.target).hasClass('has_prompt')
+          promptInfo  = $(e.target).data('promptinfo')
+          promptTitle = promptInfo.title
+          promptText  = promptInfo.text
+          @prompt     = prompt(promptTitle, promptText)
+          if @prompt != '' && @prompt != 'http://'
+            @setState(state, @prompt)
+        else if $(e.target).hasClass('format_block')
+          blockformat = $(e.target).data('blockformat')
+          @setState(state, blockformat)
+        else
+          @setState(state)
+
+        @toggleEditElements()
         @updateInput()
+        @editor.focus()
+
+      $('select.edit_dropdown').on 'change.changeState', (e) =>
+        e.stopPropagation()
+        state       = $(e.target).attr('rel')
+        blockformat = $(e.target).val()
+        console.log(blockformat)
+        @setState(state, blockformat)
+
+    toggleEditElements: ->
+      $('button.edit_button').removeClass('active')
+      @editElementsWrap.children().not('.format_block').each (i, el) =>
+        $(el).removeClass('active')
+        elState = $(el).attr('rel')
+        state   = document.queryCommandState(elState)
+        if state then $(el).addClass('active')
+
+      node = window.getSelection().anchorNode.parentNode
+      while node.nodeName != 'DIV' && node.id != 'edit_elements_wrapper'
+        $('button.format_block[data-blockformat='+node.nodeName+']').addClass('active')
+        node = node.parentNode
 
     watchSelection: ->
-      @editor.on 'mouseup.watchSelection keydown.watchSelection', (e) =>
-        $('button.edit_button').removeClass('active')
-
-        # node = e.target
-        # while node.nodeName != 'DIV'
-        #   $('button[rel='+node.nodeName+']').addClass('active')
-        #   node = node.parentNode
+      @editor.on 'click.watchSelection keyup.watchSelection', (e) =>
+        @toggleEditElements()
