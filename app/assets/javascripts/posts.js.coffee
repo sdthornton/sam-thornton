@@ -106,6 +106,8 @@ namespace 'Site', (exports) ->
           @setState(state)
 
         @toggleEditElements()
+        @editor.find('*').each (i, el) =>
+          $(el).addClass('post__'+el.nodeName.toLowerCase())
         @updateInput()
         @editor.focus()
 
@@ -113,7 +115,6 @@ namespace 'Site', (exports) ->
         e.stopPropagation()
         state       = $(e.target).attr('rel')
         blockformat = $(e.target).val()
-        console.log(blockformat)
         @setState(state, blockformat)
 
     toggleEditElements: ->

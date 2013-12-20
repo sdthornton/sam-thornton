@@ -51,9 +51,10 @@ gem "paperclip", "~> 3.5.1"
 gem "kaminari", "~> 0.14.1"
 
 group :development do
-  gem 'capistrano'
-  gem 'capistrano-ext'
-  gem 'better_errors'
+  gem 'capistrano' # For easy deploys
+  gem 'capistrano-ext' # For easy deploys
+  gem 'better_errors' # Better rails errors
+  gem 'brakeman', require: false # Check for security vulnerabilities
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
