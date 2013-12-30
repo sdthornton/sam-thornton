@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 # Use jruby with Ruby 1.9.3
-ruby '1.9.3', engine: 'jruby', engine_version: '1.7.5'
+ruby '1.9.3', engine: 'jruby', engine_version: '1.7.9'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-gem 'pg', platform: :ruby
-gem 'activerecord-jdbcpostgresql-adapter', platform: :jruby
+gem 'mysql2', platform: :ruby
+gem 'activerecord-jdbcmysql-adapter', platform: :jruby
 
 # Use puma as the app server
 gem 'puma'
