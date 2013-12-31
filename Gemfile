@@ -12,6 +12,10 @@ gem 'activerecord-jdbcmysql-adapter', platform: :jruby
 # Use puma as the app server
 gem 'puma'
 
+# Use HAML for markup
+gem 'haml'
+gem 'haml-rails', group: :development
+
 # Use Sass for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
