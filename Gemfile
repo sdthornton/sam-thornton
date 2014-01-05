@@ -17,13 +17,13 @@ gem 'haml'
 gem 'haml-rails', group: :development
 
 # Use Sass for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -32,7 +32,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -46,13 +46,16 @@ gem 'simple_form'
 gem 'pony'
 
 # Devise for Users
-gem "devise", "~> 3.0.2"
+gem 'devise', '~> 3.2.2'
+
+# Has Scope for better scoping
+gem 'has_scope'
 
 # Paperclip for Uploading Files
-gem "paperclip", "~> 3.5.1"
+gem 'paperclip', '~> 3.5.2'
 
 # Pagination
-gem "kaminari", "~> 0.14.1"
+gem 'kaminari', '~> 0.15.0'
 
 group :development do
   gem 'capistrano' # For easy deploys

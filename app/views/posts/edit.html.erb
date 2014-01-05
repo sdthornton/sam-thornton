@@ -1,8 +1,0 @@
-<%= simple_form_for @post, method: :patch do |f| %>
-  <%= f.input :title, placeholder: "Title", label: false %>
-  <%= f.input :url, as: :string, placeholder: "Post Url", label: false, required: false %>
-  <%= f.text_area :content, placeholder: "Content", label: false %>
-  <%= f.submit "Update Post" %>
-<% end %>
-
-<%= link_to 'Back', blog_path %>

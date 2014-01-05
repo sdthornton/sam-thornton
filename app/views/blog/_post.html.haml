@@ -1,0 +1,7 @@
+%article.post-preview
+  %h1= post.title
+  = post.content.html_safe
+  %p
+    = link_to "Show", show_post_path(post.url), class: "view-post"
+    = render "admin_links", post: post
+%hr

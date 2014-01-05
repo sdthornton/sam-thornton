@@ -1,6 +1,0 @@
-<% @posts.each do |post| %>
-  <%= render "post", post: post %>
-  <p><%= link_to 'Back', blog_path %> <%= render 'admin_links', post: post %></p>
-<% end %>
-
-<%= paginate @posts %>
