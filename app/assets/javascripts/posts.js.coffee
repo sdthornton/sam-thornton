@@ -76,6 +76,7 @@ namespace 'Site', (exports) ->
         superscript: "<button id='make_superscript' class='make_superscript edit_button state_change' rel='superscript'>Super</button>"
         createLink: "<button id='make_link' class='make_link edit_button state_change has_prompt' rel='createlink' data-promptinfo='{ \"title\": \"Write the URL here\", \"text\": \"http://\" }''>Link</button>"
         removeLink: "<button id='make_unlink' class='make_unlink edit_button state_change' rel='unlink'>Unlink</button>"
+
         quote: "<button id='make_quote' class='make_quote edit_button state_change format_block' rel='formatblock' data-blockformat='BLOCKQUOTE'>Quote</button>"
         heading: """
           <select id='make_heading' class='make_heading edit_dropdown state_change format_block' rel='formatblock'>

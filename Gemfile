@@ -62,6 +62,7 @@ group :development do
   gem 'capistrano-ext' # For easy deploys
   gem 'better_errors' # Better rails errors
   gem 'brakeman', require: false # Check for security vulnerabilities
+  gem 'bullet' # Help reduce number of queries
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
