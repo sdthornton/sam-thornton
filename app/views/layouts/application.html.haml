@@ -1,16 +1,16 @@
 !!!
 %html
-%head
-  %title Personal Site
-  = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
-  = csrf_meta_tags
-%body
-  - flash.each do |flash, message|
-    %div{class: "flash flash-#{flash}"}= message
+  %head
+    %title Personal Site
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    - flash.each do |flash, message|
+      %div{class: "flash flash-#{flash}"}= message
 
-  = render "/shared/navigation"
+    = render "/shared/navigation"
 
-  = yield
+    = yield
 
-  = javascript_include_tag "application", "data-turbolinks-track" => true
-  = yield :javascript
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = yield :javascript

@@ -1,5 +1,5 @@
 # Creates a namespaced class or method
-#
+
 # Example usages:
 # namespace 'Foo.Bar', (exports) ->
 #   class export.Baz

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Use jruby with Ruby 1.9.3
-ruby '1.9.3', engine: 'jruby', engine_version: '1.7.9'
+ruby '1.9.3', engine: 'jruby', engine_version: '1.7.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -30,6 +30,7 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'nprogress-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0.2'
