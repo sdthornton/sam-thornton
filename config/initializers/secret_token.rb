@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Personalsite::Application.config.secret_key_base = '33d85f5b01cbe525abc10095e743a34d6ab6037ddab90509f82b2d5f2417f79e7b9951aa84bcd7e4bfd39e4e4e451c747b672c9bce6630fdc90a2598de96dd5d'
+Personalsite::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']

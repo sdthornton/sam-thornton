@@ -6,7 +6,7 @@ class BlogController < ApplicationController
   end
 
   def show
-    @post  = Post.find_by_url(params[:url])
+    @post  = Post.find_by(url: params[:url])
     @admin = admin_signed_in?
   end
 
