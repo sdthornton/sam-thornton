@@ -3,57 +3,38 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   fixtures :posts
 
-  test "Post fields cannot be empty" do
+  test "post should only save if title and content aren't blank" do
     post = Post.new
-    assert post.invalid?
-    assert post.errors[:title].any?
-    assert post.errors[:text].any?
-    assert post.errors[:url].any?
+    assert !post.save, "Post saved even though title and content were blank."
+
+    post.title = "Test Post"
+    assert !post.save, "Post saved even though content is blank."
+
+    post.title = ""
+    post.content = "<p>This is a nice test post.</p><p>I hope you've enjoyed it.</p>"
+    assert !post.save, "Post saved even though title is blank."
+
+    post.title = "Test Post"
+    assert post.save, "Post didn't save even though title and content weren't blank."
   end
 
-  test "Post must have content" do
+  test "post should have a unique title" do
     post = Post.new
-    post.title = posts(:one).title
-    assert post.invalid?
-    assert_equal "can't be blank", post.errors[:text].join(', ')
-  end
-
-  test "Post must have a title" do
-    post = Post.new
-    post.text = posts(:one).text
-    assert post.invalid?
-    assert_equal "can't be blank", post.errors[:title].join(', ')
-  end
-
-  test "Post has a url created" do
-    post = Post.new
-    post.title = posts(:two).title
-    post.text = posts(:two).text
+    post.title = "Test Post"
+    post.content = "Test post content"
     post.save
-    assert post.url.present?
-    assert post.url = post.title.parameterize.underscore.to_s
-  end
-
-  test "Post title must be unique" do
-    post1 = Post.new
-    post1.title = posts(:three).title
-    post1.text = posts(:three).text
-    post1.valid?
 
     post2 = Post.new
-    post2.title = posts(:three).title
-    post2.text = posts(:three).text
-    assert post2.invalid?, "Post saved without a unique title"
-    assert_equal "has already been taken", post2.errors[:title].join(', ')
+    post2.title = "Test Post"
+    post2.content = "Test post content"
+    assert !post2.save, "Post saved even though title is not unique."
   end
 
-  test "Post must have a unique url" do
-    post1 = Post.new(title: "Test Post", text: "a test post", url: "test_post")
-    post1.save
-    post1.valid?
-
-    post2 = Post.new(title: "Test Post 2", text: "another test post", url: "test_post")
-    post2.save
-    assert post2.invalid?, "Post was saved with a non-unique url"
+  test "post url should be underscore version of post title" do
+    post = Post.new
+    post.title = "A Nice Test Post"
+    post.content = "<p>This is a test post.</p>"
+    post.save
+    assert post.url == "a_nice_test_post", "Post url didn't match the underscored title."
   end
 end

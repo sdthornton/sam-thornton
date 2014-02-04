@@ -1,4 +1,8 @@
-- @posts.each do |post|
-  = render "post", post: post
+- meta title: "Blog | Samuel Thornton | Front-End Developer & UX Designer | Portland, OR"
 
-= paginate @posts
+%section.blogs
+  .container
+    - @posts.each do |post|
+      = render "post", post: post
+
+    = paginate @posts

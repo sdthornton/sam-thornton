@@ -58,6 +58,9 @@ gem 'paperclip', '~> 3.5.2'
 # Pagination
 gem 'kaminari', '~> 0.15.0'
 
+# Update meta tags despite Turbolinks
+gem 'metamagic'
+
 group :development do
   gem 'capistrano' # For easy deploys
   gem 'capistrano-ext' # For easy deploys

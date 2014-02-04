@@ -3,4 +3,4 @@ $(document).on 'page:fetch', ->
 .on 'page:change', ->
   NProgress.done()
 .on 'page:restore', ->
-  NProgress.restore()
+  NProgress.remove()

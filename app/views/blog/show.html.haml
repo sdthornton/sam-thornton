@@ -1,5 +1,9 @@
-= render "post", post: @post
-%br
+- meta title: "#{@post.title} | Samuel Thornton | Front-End Developer & UX Designer | Portland, OR"
 
-%p
- = disqus_comments
+%section.post
+  .container
+    = render "post", post: @post
+    %br
+
+    %p
+      = disqus_comments

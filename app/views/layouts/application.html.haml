@@ -1,8 +1,9 @@
 !!!
 %html
   %head
-    %title Personal Site
+    = metamagic title: "Samuel Thornton | Front-End Developer & UX Designer | Portland, OR"
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
     - flash.each do |flash, message|
@@ -10,7 +11,7 @@
 
     = render "/shared/navigation"
 
-    = yield
+    #page-wrapper.clear
+      = yield
 
-    = javascript_include_tag "application", "data-turbolinks-track" => true
     = yield :javascript

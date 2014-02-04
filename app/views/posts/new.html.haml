@@ -1,7 +1,12 @@
-= simple_form_for @post do |f|
-  = f.input :title, placeholder: "Title", label: false
-  = f.input :content, placeholder: "Content", label: false
-  = f.submit "Publish Post"
+%section.new-post
+  .container
+    = @post.errors.each do |e|
+      e
+    = simple_form_for @post do |f|
+      = f.input :title, placeholder: "Title", label: false
+      = f.input :content, placeholder: "Content", label: false
+      = f.input :snippet
+      = f.submit "Publish Post"
 
-- content_for :javascript do
-  %script new Site.PostEdit($('#post_content'))
+    - content_for :javascript do
+      %script new Site.PostEdit('#post_content')

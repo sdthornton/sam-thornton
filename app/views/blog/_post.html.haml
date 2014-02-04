@@ -1,10 +1,16 @@
-%article.post-preview
+%article{id: action_name == 'show' ? post.url : "#{post.url}_preview", class: "#{post.url.gsub(/_/, '-')} #{action_name == 'show' ? 'blog-post' : 'blog-post-preview'}"}
   %h1= post.title
-  = post.content.html_safe
-  %p
+  .post__timestamp
+    Created on: #{post.created_at.strftime("%a, %B %d, %Y")}
+  .post__content
     - if action_name == 'show'
-      = link_to "Back", blog_path, class: "back-button"
+      = post.content.html_safe
     - else
-      = link_to "Show", show_post_path(post.url), class: "show-button"
-    = render "admin_links", post: post
+      = simple_format((post.snippet || truncate(strip_tags(post.content), length: 500, separator: ' ')), class: "post__snippet")
+    %p
+      - if action_name == 'show'
+        = link_to "Back", blog_path, class: "back-button"
+      - else
+        = link_to "Show", show_post_path(post.url), class: "show-button"
+      = render "admin_links", post: post
 %hr
