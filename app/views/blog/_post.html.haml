@@ -1,7 +1,9 @@
 %article{id: action_name == 'show' ? post.url : "#{post.url}_preview", class: "#{post.url.gsub(/_/, '-')} #{action_name == 'show' ? 'blog-post' : 'blog-post-preview'}"}
   %h1= post.title
   .post__timestamp
-    Created on: #{post.created_at.strftime("%a, %B %d, %Y")}
+    %h5
+      %i.ion-ios7-clock-outline.icon-large
+      Published #{post.created_at.strftime("%B %d, %Y")}
   .post__content
     - if action_name == 'show'
       = post.content.html_safe

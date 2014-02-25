@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203211009) do
+ActiveRecord::Schema.define(version: 20140224065020) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,5 +43,14 @@ ActiveRecord::Schema.define(version: 20140203211009) do
   end
 
   add_index "posts", ["url"], name: "index_posts_on_url", unique: true, using: :btree
+
+  create_table "slugs", force: true do |t|
+    t.integer  "post_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "slugs", ["url"], name: "index_slugs_on_url", unique: true, using: :btree
 
 end

@@ -20,3 +20,6 @@
 
 # Ignore Brakeman output
 output.*
+
+# Ignore sensitive data
+/config/secrets.yml

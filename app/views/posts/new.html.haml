@@ -1,7 +1,7 @@
 %section.new-post
   .container
-    = @post.errors.each do |e|
-      e
+    / = @post.errors.each do |e|
+    /   e
     = simple_form_for @post do |f|
       = f.input :title, placeholder: "Title", label: false
       = f.input :content, placeholder: "Content", label: false

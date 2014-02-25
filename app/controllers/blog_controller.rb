@@ -6,7 +6,12 @@ class BlogController < ApplicationController
   end
 
   def show
-    @post  = Post.find_by(url: params[:url])
+    if Post.find_by(url: params[:url])
+      @post = Post.find_by(url: params[:url])
+    else
+      @post = Slug.find_by!(url: params[:url]).post.url
+      redirect_to show_post_path(@post)
+    end
     @admin = admin_signed_in?
   end
 
