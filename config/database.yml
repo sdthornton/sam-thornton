@@ -17,7 +17,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: sam_thornton_test
+  database: sam_thornton_test<%= ENV['TEST_ENV_NUMBER'] %>
   username: sam_test
   pool: 16
   timeout: 5000

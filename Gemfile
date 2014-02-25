@@ -67,6 +67,7 @@ group :development do
   gem 'better_errors' # Better rails errors
   gem 'brakeman', require: false # Check for security vulnerabilities
   gem 'bullet' # Help reduce number of queries
+  gem 'parallel_tests' # run tests using all cores
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

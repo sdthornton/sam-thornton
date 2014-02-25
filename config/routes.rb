@@ -7,9 +7,10 @@ Personalsite::Application.routes.draw do
   devise_for :admins, path: 'admin', path_names: { sign_in: 'login', sign_out: 'logout' }, skip: [:registrations, :passwords]
 
   get 'blog' => 'blog#index'
-  get 'blog/:url' => 'blog#show', as: :show_post
   scope 'blog' do
     resources :posts, except: :index
+    get ':url' => 'blog#show', as: :show_post
+    get 'page/:page' => 'blog#index'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
