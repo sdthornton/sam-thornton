@@ -5,14 +5,14 @@ class PostTest < ActiveSupport::TestCase
 
   test "post should only save if title and content aren't blank" do
     post = Post.new
-    assert_not post.save, "Post saved even though title and content were blank."
+    assert !post.save, "Post saved even though title and content were blank."
 
     post.title = "Test Post"
-    assert_not post.save, "Post saved even though content is blank."
+    assert !post.save, "Post saved even though content is blank."
 
     post.title = ""
     post.content = "<p>This is a nice test post.</p><p>I hope you've enjoyed it.</p>"
-    assert_not post.save, "Post saved even though title is blank."
+    assert !post.save, "Post saved even though title is blank."
 
     post.title = "Test Post"
     assert post.save, "Post didn't save even though title and content weren't blank."
@@ -27,7 +27,7 @@ class PostTest < ActiveSupport::TestCase
     post2 = Post.new
     post2.title = "Test Post"
     post2.content = "Test post content"
-    assert_not post2.save, "Post saved even though title is not unique."
+    assert !post2.save, "Post saved even though title is not unique."
   end
 
   test "post url should be underscore version of post title" do

@@ -7,7 +7,7 @@ class SlugTest < ActiveSupport::TestCase
     slug = Slug.new
     slug.post = Post.find_by(url: "test_post")
 
-    assert_not slug.save, "Slug saved without a url"
+    assert !slug.save, "Slug saved without a url"
   end
 
   test "slug should belong to a post" do
@@ -16,6 +16,6 @@ class SlugTest < ActiveSupport::TestCase
     slug = Slug.new
     slug.url = "a_test_slug"
 
-    assert_not slug.save, "Slug saved without an associated Post"
+    assert !slug.save, "Slug saved without an associated Post"
   end
 end
