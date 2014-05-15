@@ -7,11 +7,12 @@
     = csrf_meta_tags
   %body
     - flash.each do |flash, message|
-      %div{class: "flash flash-#{flash}"}= message
+      %div{class: "flash flash-#{flash}"}
+        = message
 
     = render "/shared/navigation"
 
-    #page-wrapper.clear
+    %main#page_wrapper.clear
       = yield
 
     = yield :javascript

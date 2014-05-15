@@ -1,69 +1,50 @@
-html {
-  font-size: 100%;
-}
+html
+  font-size: 100%
 
-body {
-  -webkit-font-smoothing: antialiased;
-  font: 300 100% "Roboto", "Helvetica-Neue", Helvetica, Arial, sans-serif;
-}
+body
+  -webkit-font-smoothing: antialiased
+  font: 300 100%/1.61803398875 "Roboto", "Helvetica Neue", "Helvetica-Neue", Helvetica, Arial, sans-serif
 
-body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
-  font-size-adjust: 0.5;
-}
+body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6
+  font-size-adjust: 0.5
 
-#page-wrapper {
-  font-size: 1em; // equivalent to 16px
-  line-height: $golden;
-}
+@media (min-width: 72.000em)
+  html
+    font-size: 112.5% // equivalent to 18px
 
-@media (min-width: 72.000em) {
-  #page-wrapper {
-    font-size: 1.125em; // equivalent to 18px
-  }
-}
+h1
+  font-size: 1.8em
+  line-height: 1.19
+  margin: 0.5em 0
 
-h1 {
-  font-size: 1.8em;
-  line-height: 1.19;
-  margin: 0.5em 0;
-}
+@media (min-width: 38.000em)
+  h1
+    font-size: #{$golden*$golden}em
 
-@media (min-width: 38.000em) {
-  h1 {
-    font-size: #{$golden*$golden}em;
-  }
-}
+h2
+  font-size: #{$golden}em
+  margin: 0.382em 0
 
-h2 {
-  font-size: #{$golden}em;
-  margin: 0.382em 0;
-}
+h3
+  font-size: 1.25em
+  margin: 0.6em 0
 
-h3 {
-  font-size: 1.25em;
-  margin: 0.6em 0;
-}
+h4
+  font-size: 1em
+  margin: 0.8125em 0
 
-h4 {
-  font-size: 1em;
-  margin: 0.8125em 0;
-}
-
-h5 {
-  font-size: 0.78125em;
-  margin: 1.125em 0;
-}
+h5
+  font-size: 0.78125em
+  margin: 1.125em 0
 
 p,
 blockquote,
-ul {
-  @extend %golden-margin;
-}
+ul
+  @extend %golden-margin
 
-blockquote {
-  border-left: solid 2px;
-  padding-left: #{$golden}em;
-}
+blockquote
+  border-left: solid 2px
+  padding-left: #{$golden}em
 
 // @media (min-width: 56.25em) {
 //   h1 {

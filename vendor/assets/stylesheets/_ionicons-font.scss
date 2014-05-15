@@ -3,11 +3,11 @@
 
 @font-face {
  font-family: $ionicons-font-family;
- src:asset-url("ionicons.eot?v=#{$ionicons-version}");
- src:asset-url("ionicons.eot?v=#{$ionicons-version}#iefix") format("embedded-opentype"),
-  asset-url("ionicons.ttf?v=#{$ionicons-version}") format("truetype"),
-  asset-url("ionicons.woff?v=#{$ionicons-version}") format("woff"),
-  asset-url("ionicons.svg?v=#{$ionicons-version}#Ionicons") format("svg");
+ src: font-url("ionicons.eot?v=#{$ionicons-version}");
+ src: font-url("ionicons.eot?v=#{$ionicons-version}#iefix") format("embedded-opentype"),
+      font-url("ionicons.ttf?v=#{$ionicons-version}") format("truetype"),
+      font-url("ionicons.woff?v=#{$ionicons-version}") format("woff"),
+      font-url("ionicons.svg?v=#{$ionicons-version}#Ionicons") format("svg");
  font-weight: normal;
  font-style: normal;
 }

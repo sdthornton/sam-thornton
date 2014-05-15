@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby '1.9.3', engine: 'jruby', engine_version: '1.7.11'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.1'
 
 gem 'mysql2', platform: :ruby
 gem 'activerecord-jdbcmysql-adapter', platform: :jruby
