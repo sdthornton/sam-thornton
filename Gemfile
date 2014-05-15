@@ -70,6 +70,11 @@ group :development do
   gem 'parallel_tests' # run tests using all cores
 end
 
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+end
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
