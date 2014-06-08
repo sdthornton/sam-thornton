@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Use jruby with Ruby 1.9.3
-ruby '1.9.3', engine: 'jruby', engine_version: '1.7.11'
+ruby '1.9.3', engine: 'jruby', engine_version: '1.7.12'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
@@ -61,18 +61,27 @@ gem 'kaminari', '~> 0.15.0'
 # Update meta tags despite Turbolinks
 gem 'metamagic'
 
+# Factory Girl, no need for fixtures
+gem 'factory_girl_rails', require: false
+
 group :development do
   gem 'capistrano' # For easy deploys
   gem 'capistrano-ext' # For easy deploys
   gem 'better_errors' # Better rails errors
   gem 'brakeman', require: false # Check for security vulnerabilities
   gem 'bullet' # Help reduce number of queries
-  gem 'parallel_tests' # run tests using all cores
+  gem 'parallel_tests'
+  gem 'delorean'
+  gem 'pry-rails'
 end
 
 group :test do
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
+  gem 'cucumber-rails', require: false # BDD testing
+  gem 'database_cleaner' # Recommended with cucumber
+  gem 'capybara'
+  gem 'launchy'
+  gem 'shoulda'
+  gem 'mocha', require: false
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

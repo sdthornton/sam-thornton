@@ -4,13 +4,13 @@ class Message
   include ActiveModel::Validations
   include ActionView::Helpers::TextHelper
 
-  attr_accessor :name , :email, :subject, :body
+  attr_accessor :name, :email, :subject, :body
 
   validates :name, :email, :subject, :body,
             presence: true
 
   validates :email,
-            format: { with: /\A.+@.+\..+\z/ }
+            format: { with: /\A\S+@.+\.\S+\z/ }
 
   validates :body,
             length: { minimum: 10 }
