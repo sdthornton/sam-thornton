@@ -4,7 +4,9 @@ Personalsite::Application.routes.draw do
   get 'contact' => 'contact#new'
   post 'contact' => 'contact#create'
 
-  devise_for :admins, path: 'admin', path_names: { sign_in: 'login', sign_out: 'logout' }, skip: [:registrations, :passwords]
+  devise_for :admins, path: 'admin',
+    path_names: { sign_in: 'login', sign_out: 'logout' },
+    skip: [:registrations, :passwords]
 
   get 'blog' => 'blog#index'
   scope 'blog' do

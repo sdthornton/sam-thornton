@@ -1,72 +1,98 @@
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
-  fixtures :posts
 
-  test "post should only save if title and content aren't blank" do
-    post = Post.new
-    assert !post.save, "Post saved even though title and content were blank."
-
-    post.title = "Test Post"
-    assert !post.save, "Post saved even though content is blank."
-
-    post.title = ""
-    post.content = "<p>This is a nice test post.</p><p>I hope you've enjoyed it.</p>"
-    assert !post.save, "Post saved even though title is blank."
-
-    post.title = "Test Post"
-    assert post.save, "Post didn't save even though title and content weren't blank."
+  context 'associations' do
+    should have_many(:slugs)
   end
 
-  test "post should have a unique title" do
-    post = Post.new
-    post.title = "Test Post"
-    post.content = "Test post content"
-    post.save
+  context 'title' do
+    setup do
+      @post = build(:post, title: 'Test Post')
+    end
 
-    post2 = Post.new
-    post2.title = "Test Post"
-    post2.content = "Test post content"
-    assert !post2.save, "Post saved even though title is not unique."
+    should 'save with a valid title' do
+      assert @post.save,
+        "Post didn't save with a valid title"
+    end
+
+    should 'not save when title is blank' do
+      @post.title = ""
+      assert !@post.save,
+        "Post saved even though title was blank."
+    end
+
+    should 'not save when title is not unique' do
+      @post.save
+      @invalid_post = build(:post, title: "Test Post")
+      assert !@invalid_post.save,
+        "Post saved even though title wasn't unique"
+    end
   end
 
-  test "post url should be underscore version of post title" do
-    post = Post.new
-    post.title = "A Nice Test Post"
-    post.content = "<p>This is a test post.</p>"
-    post.save
-    assert post.url == "a_nice_test_post", "Post url didn't match the underscored title."
+  context 'content' do
+    setup do
+      @post = build(:post)
+    end
+
+    should 'save with valid content' do
+      assert @post.save,
+        "Post didn't save with valid content"
+    end
+
+    should 'not save when content is blank' do
+      @post.content = ""
+      assert !@post.save,
+        "Post saved even though content was blank"
+    end
   end
 
-  test "post should have slugs" do
-    post = Post.new
-    post.title = "A Slug Test"
-    post.content = "<p>Slug test post.</p>"
-    post.save
-    assert post.slugs.first.url == "a_slug_test", "A slug should be present after post creation"
-
-    post.title = "Updated Slug Test"
-    post.url = "updated_slug_test"
-    post.save
-    assert post.slugs.second.url == "updated_slug_test", "A slug should be present after post update"
+  context 'url' do
+    should 'save a post with an underscored version of title' do
+      @post = create(:post, title: "Foo Bar Baz")
+      assert_equal "foo-bar-baz", @post.url,
+        "Post url didn't match the underscored title"
+    end
   end
 
-  test "deleting a post should delete its slugs" do
-    post = Post.new
-    post.title = "A Slug Test"
-    post.content = "<p>Slug test post.</p>"
-    post.save
+  context 'slugs' do
+    setup do
+      @post = create(:post, title: "A Slug Test")
+    end
 
-    post.title = "Updated Slug Test"
-    post.url = "updated_slug_test"
-    post.save
+    should 'create a slug when a post is created' do
+      assert_equal 'a-slug-test', @post.slugs.first.url,
+        "A slug should be created after creating a post"
+    end
 
-    assert Slug.find_by(url: "a_slug_test").present?, "A slug should be present that matches post creation"
-    assert Slug.find_by(url: "updated_slug_test").present?, "A slug should be present that matches post update"
+    should 'create slugs when post title or url is updated' do
+      @post.title = "Updated Slug Test"
+      @post.save
+      assert_equal 'updated-slug-test', @post.slugs.second.url,
+        "A slug should be created after updating a post's title"
 
-    post.destroy
+      @post.url = "updating-the-slug-again"
+      @post.save
+      assert_equal 'updating-the-slug-again', @post.slugs.third.url,
+        "A slug should be created after updating a post's url"
+    end
 
-    assert Slug.find_by(url: "a_slug_test").nil?, "Slugs attached to post should have been destroyed after post destroy"
-    assert Slug.find_by(url: "updated_slug_test").nil?, "Slugs attached to post should have been destroyed after post destroy"
+    should 'not create slugs when title or url is not changed' do
+      @post.content = "Updating content"
+      @post.save
+      assert_equal 1, @post.slugs.count,
+        "A slug was created even though post url didn't change"
+      assert_equal "a-slug-test", @post.slugs.first.url,
+        "The slug url changed even though the post url didn't change"
+    end
+
+    should 'delete associated slugs when post is destroyed' do
+      assert_equal 1, Slug.where(url: "a-slug-test").count,
+        'There was no slug associated with the post'
+
+      @post.destroy
+      assert_equal 0, Slug.where(url: "a-slug-test").count,
+        'The slug was not deleted when the post was destroyed'
+    end
   end
 end

@@ -11,14 +11,10 @@ class ContactControllerTest < ActionController::TestCase
       assert_routing contact_path, controller: 'contact', action: 'new'
     end
 
-    should 'successfuly get :new' do
+    should 'successfuly get :new and assign @message' do
       get :new
       assert_response :success
       assert_template :new
-    end
-
-    should 'assign @message' do
-      get :new
       assert_not_nil assigns(:message)
     end
   end

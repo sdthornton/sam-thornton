@@ -1,21 +1,15 @@
 require 'test_helper'
 
 class SlugTest < ActiveSupport::TestCase
-  test "slug should have a url" do
-    post = Post.create(title: "Test Post", content: "Test post content")
-
-    slug = Slug.new
-    slug.post = Post.find_by(url: "test_post")
-
-    assert !slug.save, "Slug saved without a url"
+  context 'slug validation' do
+    should 'have a url' do
+      @slug = build(:slug, url: "")
+      assert !@slug.save,
+        "Slug saved without a url"
+    end
   end
 
-  test "slug should belong to a post" do
-    post = Post.create(title: "Test Post", content: "Test post content")
-
-    slug = Slug.new
-    slug.url = "a_test_slug"
-
-    assert !slug.save, "Slug saved without an associated Post"
+  context 'associations' do
+    should belong_to(:post)
   end
 end
