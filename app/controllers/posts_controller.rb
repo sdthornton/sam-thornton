@@ -11,8 +11,10 @@ class PostsController < ApplicationController
 
     if @post.save
       redirect_to @post
+      flash[:notice] = 'Post successfully created'
     else
       render 'new'
+      flash[:error] = 'Post was not saved. Errors are present.'
     end
   end
 
@@ -43,6 +45,7 @@ class PostsController < ApplicationController
   end
 
   private
+  
     def post_params
       params.require(:post).permit(:title, :content, :url, :snippet)
     end

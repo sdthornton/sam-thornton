@@ -14,7 +14,8 @@ class ActiveSupport::TestCase
 end
 
 class ActionController::TestCase
-  include Warden::Test::Helpers
   include Devise::TestHelpers
   include FactoryGirl::Syntax::Methods
+  include Warden::Test::Helpers
+  Warden.test_mode!
 end

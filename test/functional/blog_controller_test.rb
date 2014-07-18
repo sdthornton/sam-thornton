@@ -29,7 +29,7 @@ class BlogControllerTest < ActionController::TestCase
 
   context '#show' do
     should 'respond to /blog/a_test_post and show_post_path' do
-      assert_routing "/blog/post_1", controller: 'blog', action: 'show', url: @post_1.url
+      assert_routing "/blog/post-1", controller: 'blog', action: 'show', url: @post_1.url
       assert_routing show_post_path(@post_1.url), controller: 'blog', action: 'show', url: @post_1.url
     end
 
