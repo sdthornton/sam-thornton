@@ -1,11 +1,10 @@
 %section.edit-post
-  .container
-    = @post.errors.each do |e|
-      e
-    = simple_form_for @post, method: :patch do |f|
-      = f.input :title, placeholder: "Title", label: false
-      = f.input :url, as: :string, placeholder: "Post Url", label: false, required: false
-      = f.text_area :content, placeholder: "Content", label: false
-      = f.submit "Update Post"
+  = @post.errors.each do |e|
+    e
+  = simple_form_for @post, method: :patch do |f|
+    = f.input :title, placeholder: "Title", label: false
+    = f.input :url, as: :string, placeholder: "Post Url", label: false, required: false
+    = f.text_area :content, placeholder: "Content", label: false
+    = f.submit "Update Post"
 
-    = link_to "Back", blog_path
+  = link_to "Back", blog_path

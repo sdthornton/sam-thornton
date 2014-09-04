@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 # Use jruby with Ruby 1.9.3
-ruby '1.9.3', engine: 'jruby', engine_version: '1.7.12'
+ruby '1.9.3', engine: 'jruby', engine_version: '1.7.14'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.5'
 
 gem 'mysql2', platform: :ruby
 gem 'activerecord-jdbcmysql-adapter', platform: :jruby
@@ -17,7 +17,8 @@ gem 'haml'
 gem 'haml-rails', group: :development
 
 # Use Sass for stylesheets
-gem 'sass-rails', '~> 4.0.1'
+gem 'sass-rails', '~> 4.0.3'
+gem 'compass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -67,7 +68,7 @@ gem 'factory_girl_rails', require: false
 group :development do
   gem 'capistrano' # For easy deploys
   gem 'capistrano-ext' # For easy deploys
-  gem 'better_errors' # Better rails errors
+  gem 'better_errors', '~> 1.1.0' # Better rails errors
   gem 'brakeman', require: false # Check for security vulnerabilities
   gem 'bullet' # Help reduce number of queries
   gem 'parallel_tests'
@@ -82,6 +83,7 @@ group :test do
   gem 'launchy'
   gem 'shoulda'
   gem 'mocha', require: false
+  # gem 'scss-lint' # Doesn't work until rails-sass is updated, install manually
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

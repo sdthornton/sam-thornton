@@ -1,0 +1,28 @@
+.home-banner {
+  background: image-url('portland.jpg') center center no-repeat;
+  background-size: cover;
+  height: rhythm(16);
+  position: relative;
+}
+
+.home-banner__title {
+  color: $white;
+  padding: 0 rhythm(2);
+  position: fixed;
+  text-align: center;
+  top: rhythm(6);
+  width: 100%;
+}
+
+.home-banner__heading,
+.home-banner__sub-heading {
+  margin-bottom: 0;
+}
+
+.home-banner__sub-heading {
+  color: $lt-gray;
+}
+
+.home {
+  margin-top: rhythm(-2);
+}

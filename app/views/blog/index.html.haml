@@ -1,8 +1,7 @@
 - meta title: 'Blog • Samuel Thornton • Front-End Developer & UX Designer • Portland, OR'
 
 %section.blogs
-  .container
-    - @posts.each do |post|
-      = render "post", post: post
+  - @posts.each do |post|
+    = render "post", post: post
 
-    = paginate @posts
+  = paginate @posts

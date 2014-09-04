@@ -15,6 +15,8 @@ Personalsite::Application.routes.draw do
     get 'page/:page' => 'blog#index'
   end
 
+  get 'about' => 'about#about'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

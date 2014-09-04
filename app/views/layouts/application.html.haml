@@ -3,16 +3,17 @@
   %head
     = metamagic title: "Samuel Thornton • Front-End Developer & UX Designer • Portland, OR"
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true, async: true
     = csrf_meta_tags
   %body
     - flash.each do |flash, message|
       %div{class: "flash flash-#{flash}"}
         = message
 
-    = render "/shared/navigation"
+    %header.site-header
+      = render "/shared/navigation"
 
-    %main#page_wrapper.clear
+    %main#page_wrapper.page-wrapper
       = yield
 
-    = yield :javascript
+    = render "/shared/javascript_methods"

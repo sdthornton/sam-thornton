@@ -10,7 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require modernizr
+//= require jquery2
 //= require jquery_ujs
 //= require turbolinks
 //= require nprogress
@@ -18,3 +19,4 @@
 //= require nprogress-init
 //= require utilities
 //= require_tree .
+//= require javascript-ready

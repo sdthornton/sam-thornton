@@ -1,26 +1,39 @@
 namespace 'Site', (exports) ->
   class exports.Disqus
-
-    constructor: ->
+    
+    constructor: (@identifier, @url)->
       @comments        = document.getElementById('disqus_thread')
       @disqusLoaded    = false
       @disqusShortname = "samthornton"
+      @initDisqus()
+
+    createEmbedScript: ->
       @dsq             = document.createElement('script')
       @dsq.type        = "text/javascript"
       @dsq.async       = true
       @dsq.src         = "//#{@disqusShortname}.disqus.com/embed.js"
 
-      @init()
+    resetDisqus: ->
+      self = @
+      DISQUS.reset
+        reload: true
+        config: ->
+          @page.identifier = self.identifier
+          @page.url = self.url
 
     loadDisqus: ->
-      (document.getElementsByTagName('head')[0] or document.getElementsByTagName('body')[0]).appendChild(@dsq)
+      if window.DISQUS
+        @resetDisqus()
+      else
+        @createEmbedScript()
+        (document.head or document.body).appendChild(@dsq)
       @disqusLoaded = true
 
     bookmarkLoad: ->
       if window.location.hash.indexOf('#comments') >= 0
         @loadDisqus()
 
-    init: ->
+    initDisqus: ->
       @bookmarkLoad()
 
       if @comments

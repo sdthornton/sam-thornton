@@ -1,0 +1,1 @@
+window.Site.javascriptReady = true

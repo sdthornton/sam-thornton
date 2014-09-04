@@ -1,0 +1,24 @@
+.site-header {
+  background: $mint-dk;
+  height: rhythm(2.5);
+  position: fixed;
+  text-align: center;
+  width: rhythm(2.5);
+  z-index: 99;
+}
+
+.toggle-site-nav {
+  @include adjust-font-size-to(39.682px);
+  box-shadow: 3px 1px 1px rgba(0, 0, 0, 0.1), 1px 3px 1px rgba(0, 0, 0, 0.1);
+  line-height: rhythm(2.5, 39.682px);
+  margin: 0 auto;
+}
+
+.site-nav__links {
+  display: none;
+}
+
+.site-nav__link {
+  color: $white;
+  display: block;
+}

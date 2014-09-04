@@ -1,0 +1,47 @@
+%container {
+  @extend %clearfix;
+  background: $white;
+  margin: 0 auto;
+  max-width: 1152px;
+  width: 100%;
+}
+
+.container {
+  @extend %container;
+}
+
+.container--primary {
+  @extend %container;
+  box-shadow: -2px 1px 1px rgba(0, 0, 0, 0.05), 2px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.main-section {
+  @extend %clearfix;
+  padding: rhythm(1.5);
+  position: relative;
+
+  // .csstransitions & {
+  //   @extend %hidden;
+  //   @include transition-visibility;
+  //
+  //   &.visible-section {
+  //     @extend %visible;
+  //   }
+  // }
+}
+
+%column {
+  @extend %clearfix;
+  float: left;
+  min-height: 1px;
+  padding: 0 1em;
+}
+
+@for $i from 2 through 5 {
+  $width: (100 / $i) * 1%;
+
+  .column--#{$i} {
+    @extend %column;
+    width: $width;
+  }
+}
