@@ -4,8 +4,12 @@
   @include border-box;
 }
 
-html {
-  @include establish-baseline;
+@include establish-baseline;
+
+@media (max-width: 72em) {
+  html {
+    font-size: 100%;
+  }
 }
 
 body {
@@ -16,61 +20,41 @@ body {
   font-weight: 300;
 }
 
-body,
-caption,
-th,
-td,
-input,
-textarea,
-select,
-option,
-legend,
-fieldset,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+body, caption, th, td, input, textarea, select, option,
+legend, fieldset, h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5;
 }
 
-@media (max-width: 38.000em) {
-  html {
-    font-size: 100%;
-  }
-}
-
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
   font-weight: 300;
 }
 
+h1, h2, h3, h4, h5 {
+  margin-top: 0;
+}
+
 h1 {
-  @include adjust-font-size-to(47.123px);
-  margin: 0 auto rhythm(1, 47.123px);
+  @extend %font-large;
 }
 
 h2 {
-  @include adjust-font-size-to(39.682px);
-  margin: 0 auto rhythm(1, 39.682px);
+  @extend %font-medium-large;
 }
 
 h3 {
-  @include adjust-font-size-to(29.124px);
-  margin: 0 auto rhythm(1, 29.124px);
+  @extend %font-medium;
 }
 
 h4 {
-  @include adjust-font-size-to(24.525px);
-  margin: 0 auto rhythm(1, 24.525px);
+  @extend %font-medium-small;
 }
 
 h5 {
-  @include adjust-font-size-to(18px);
-  margin: 0 auto rhythm(1, 18px);
+  @extend %font-base;
+}
+
+h6 {
+  @extend %font-small;
 }
 
 p,

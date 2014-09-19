@@ -1,12 +1,14 @@
 @charset 'UTF-8';
 /*!  Force output of above line by adding a unicode character. ♫ */
 
+// Variables
+@import 'variables';
+
 // Compass
-@import 'compass/typography/vertical_rhythm';
+@import 'compass_includes';
 @import 'compass_variables';
 
-// Vars and Mixins
-@import 'variables';
+// Mixins
 @import 'mixins';
 
 // Vendor Assets

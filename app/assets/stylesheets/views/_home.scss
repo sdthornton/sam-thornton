@@ -6,11 +6,12 @@
 }
 
 .home-banner__title {
+  @include transform(translateY(-50%));
   color: $white;
   padding: 0 rhythm(2);
-  position: fixed;
+  position: absolute;
   text-align: center;
-  top: rhythm(6);
+  top: 50%;
   width: 100%;
 }
 
@@ -23,6 +24,15 @@
   color: $lt-gray;
 }
 
+.home-banner__scroll-arrow {
+  @include transform(translateX(-50%));
+  bottom: 0.5em;
+  color: $gray;
+  font-size: rhythm(2);
+  left: 50%;
+  position: absolute;
+}
+
 .home {
-  margin-top: rhythm(-2);
+  margin-top: rhythm(2);
 }

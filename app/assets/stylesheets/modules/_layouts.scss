@@ -3,6 +3,7 @@
   background: $white;
   margin: 0 auto;
   max-width: 1152px;
+  padding: 0 rhythm(1.5);
   width: 100%;
 }
 
@@ -10,38 +11,46 @@
   @extend %container;
 }
 
-.container--primary {
+.container--full {
   @extend %container;
-  box-shadow: -2px 1px 1px rgba(0, 0, 0, 0.05), 2px 1px 1px rgba(0, 0, 0, 0.05);
+  padding: 0;
 }
 
-.main-section {
-  @extend %clearfix;
-  padding: rhythm(1.5);
-  position: relative;
+.container--cards {
+  @extend .container--full;
+  background: none;
+}
 
-  // .csstransitions & {
-  //   @extend %hidden;
-  //   @include transition-visibility;
-  //
-  //   &.visible-section {
-  //     @extend %visible;
-  //   }
-  // }
+%column-parent {
+  @include display-flex;
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+  margin-left: -2%;
+}
+
+.column-parent {
+  @extend %column-parent;
 }
 
 %column {
   @extend %clearfix;
   float: left;
+  margin-left: 2%;
   min-height: 1px;
-  padding: 0 1em;
 }
 
 @for $i from 2 through 5 {
-  $width: (100 / $i) * 1%;
+  $width: ((100 - $i * 2) / $i) / 100 * 100%;
 
   .column--#{$i} {
     @extend %column;
     width: $width;
   }
+}
+
+.card-item {
+  // @include box-shadow(0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.10));
+  background: $white;
+  padding: rhythm(1);
+  text-align: center;
 }

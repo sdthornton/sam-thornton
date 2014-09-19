@@ -1,23 +1,23 @@
 source 'https://rubygems.org'
 
-# Use jruby with Ruby 1.9.3
-ruby '1.9.3', engine: 'jruby', engine_version: '1.7.14'
+# # Use jruby with Ruby 1.9.3
+# ruby '1.9.3', engine: 'jruby', engine_version: '1.7.14'
+#
+# # Use puma as the app server
+# gem 'puma'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.5'
+gem 'rails', '~> 4.2.0.beta1'
 
 gem 'mysql2', platform: :ruby
 gem 'activerecord-jdbcmysql-adapter', platform: :jruby
-
-# Use puma as the app server
-gem 'puma'
 
 # Use HAML for markup
 gem 'haml'
 gem 'haml-rails', group: :development
 
 # Use Sass for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'compass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -27,14 +27,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.1'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.0.0.beta2'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'nprogress-rails'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -48,7 +45,7 @@ gem 'simple_form'
 gem 'pony'
 
 # Devise for Users
-gem 'devise', '~> 3.2.2'
+gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'lm-rails-4-2'
 
 # Has Scope for better scoping
 gem 'has_scope'
@@ -83,7 +80,7 @@ group :test do
   gem 'launchy'
   gem 'shoulda'
   gem 'mocha', require: false
-  # gem 'scss-lint' # Doesn't work until rails-sass is updated, install manually
+  # gem 'scss-lint' # Doesn't work until sass-rails is updated, install manually
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
