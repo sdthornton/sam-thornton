@@ -1,5 +1,6 @@
 .home-banner {
   background: image-url('portland.jpg') center center no-repeat;
+  background: #3f51b5;
   background-size: cover;
   height: rhythm(16);
   position: relative;
@@ -24,15 +25,27 @@
   color: $lt-gray;
 }
 
-.home-banner__scroll-arrow {
-  @include transform(translateX(-50%));
-  bottom: 0.5em;
-  color: $gray;
-  font-size: rhythm(2);
-  left: 50%;
-  position: absolute;
+.process {
+  margin-top: rhythm(-2);
 }
 
-.home {
-  margin-top: rhythm(2);
+.process-items {
+  position: relative;
+}
+
+.process-heading {
+  margin-top: rhythm(1.5);
+}
+
+.process-icon {
+  @include transform(translate(-50%, -50%));
+  height: rhythm(3);
+  left: 50%;
+  position: absolute;
+  top: 0;
+  width: auto;
+}
+
+.process-text {
+  display: inline-block;
 }

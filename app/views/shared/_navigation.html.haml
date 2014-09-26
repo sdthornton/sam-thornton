@@ -1,6 +1,7 @@
 %nav.site-nav
   %a.toggle-site-nav.site-nav__link{href: "#"}
     %i.ion-navicon
+    %span.site-nav__link--text Menu
   .site-nav__links
     - if admin_signed_in?
       = link_to "Sign Out", destroy_admin_session_path, method: :delete

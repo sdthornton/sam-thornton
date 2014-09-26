@@ -1,22 +1,15 @@
 @charset 'UTF-8';
 /*!  Force output of above line by adding a unicode character. ♫ */
 
-// Variables
-@import 'variables';
-
-// Compass
-@import 'compass_includes';
-@import 'compass_variables';
-
-// Mixins
-@import 'mixins';
+// Utilities
+@import 'utilities/**/[a-z]*';
 
 // Vendor Assets
 @import 'nprogress';
 @import 'ionicons';
 
 // Stylesheets
-@import 'normalize';
-@import 'global';
-@import 'modules/**/*';
-@import 'views/**/*';
+@import 'base/**/[a-z]*';
+@import 'modules/**/[a-z]*';
+@import 'regions/**/[a-z]*';
+@import 'views/**/[a-z]*';

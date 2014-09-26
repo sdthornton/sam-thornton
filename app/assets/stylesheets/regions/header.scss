@@ -1,0 +1,28 @@
+.site-header {
+  position: fixed;
+  text-align: center;
+  padding-left: rhythm(1);
+  z-index: 99;
+}
+
+.toggle-site-nav {
+  @include adjust-font-size-to(map-get($fonts, medium-large));
+  line-height: rhythm(2.5, map-get($fonts, medium-large));
+  margin: 0 auto;
+}
+
+.site-nav__links {
+  display: none;
+}
+
+.site-nav__link {
+  color: $white;
+  display: block;
+  text-decoration: none;
+}
+
+.site-nav__link--text {
+  @include adjust-font-size-to(map-get($fonts, medium-small));
+  line-height: rhythm(2.5, map-get($fonts, medium-large));
+  vertical-align: top;
+}

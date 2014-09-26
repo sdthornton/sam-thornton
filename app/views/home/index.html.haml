@@ -4,17 +4,24 @@
       Samuel Thornton
     %h3.home-banner__sub-heading
       Creating the world wide web from Portland, Oregon.
-  .home-banner__scroll-arrow
-    %i.ion-chevron-down
 
-%section.home.container--cards
-  .column-parent
-    .column--3.card-item
-      %h4 Design
-      Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in.
-    .column--3.card-item
-      %h4 Develop
-      Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor.
-    .column--3.card-item
-      %h4 Deploy
-      Nulla sed leo. Class aptent taciti sociosqu ad litora torquent.
+%section.process.container--cards
+  .column-parent.process-items
+    .column--3.card-item.process-item
+      =image_tag 'process-icon--design.png', class: 'process-icon'
+      %h5.process-heading Design
+      %span.process-text
+        I'll work hard to create a brand and design that—more than looks
+        good—tells a story about who you are.
+    .column--3.card-item.process-item
+      =image_tag 'process-icon--develop.png', class: 'process-icon'
+      %h5.process-heading Develop
+      %span.process-text
+        I'll code a smoothly functioning, fully responsive site, using the most
+        modern tools and best-practices.
+    .column--3.card-item.process-item
+      =image_tag 'process-icon--deploy.png', class: 'process-icon'
+      %h5.process-heading Deploy
+      %span.process-text
+        I'll handle all the server side deployment so that your site is easily
+        and quickly found and accessed.
