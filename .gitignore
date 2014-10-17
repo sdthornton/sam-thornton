@@ -4,6 +4,27 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Ignore Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+# Ignore Environment normalisation:
+/.bundle/
+/lib/bundler/man/
+
 # Ignore system files
 .DS_Store
 
@@ -23,3 +44,6 @@ output.*
 
 # Ignore sensitive data
 /config/secrets.yml
+
+# Ignore compiled assets
+public/assets

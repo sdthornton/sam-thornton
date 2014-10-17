@@ -46,10 +46,19 @@
     @extend %column;
     width: $width;
   }
+
+  @for $x from 2 through $i {
+    $x-width: $width * $x + (2% * ($x - 1));
+
+    .column--#{$i}--#{$x} {
+      @extend %column;
+      width: $x-width;
+    }
+  }
 }
 
 .card-item {
-  @include box-shadow(0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.10));
+  // @include box-shadow(0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.10));
   background: $white;
   border-radius: 3px;
   padding: rhythm(1);
