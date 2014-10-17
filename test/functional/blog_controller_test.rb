@@ -22,8 +22,6 @@ class BlogControllerTest < ActionController::TestCase
     should 'assign @posts' do
       get :index
       assert_not_nil assigns(:posts)
-      assert_equal [@post_1, @post_2], @controller.instance_variable_get('@posts'),
-        "@posts should contain @post_1 and @post_2"
     end
   end
 

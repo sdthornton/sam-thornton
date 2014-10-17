@@ -47,3 +47,6 @@ output.*
 
 # Ignore compiled assets
 public/assets
+
+# Ignore pry config
+.pryrc
