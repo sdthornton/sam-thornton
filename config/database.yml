@@ -1,24 +1,22 @@
 development:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   database: sam_thornton_development
-  username: sam_development
   pool: 16
   timeout: 5000
 
 test: &test
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
+  host: localhost
   database: sam_thornton_test<%= ENV['TEST_DB_ID'] %><%= ENV['TEST_ENV_NUMBER'] %>
-  username: sam_test
   pool: 16
   timeout: 5000
 
 production:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   database: sam_thornton
-  username: sam_root
   pool: 16
   timeout: 5000
 

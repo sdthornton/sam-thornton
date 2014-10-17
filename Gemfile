@@ -5,12 +5,18 @@ source 'https://rubygems.org'
 #
 # # Use puma as the app server
 # gem 'puma'
+#
+# gem 'mysql2', platform: :jruby
+gem 'activerecord-jdbcmysql-adapter', platform: :jruby
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.0.beta2'
 
-gem 'mysql2', platform: :ruby
-gem 'activerecord-jdbcmysql-adapter', platform: :jruby
+# Postgresql as DB
+gem 'pg'
+
+# Thin as the webserver
+gem 'thin'
 
 # Use HAML for markup
 gem 'haml'
