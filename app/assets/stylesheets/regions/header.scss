@@ -6,9 +6,14 @@
 }
 
 .toggle-site-nav {
+  @extend %transition-all;
   @include adjust-font-size-to(map-get($fonts, medium-large));
   line-height: rhythm(2.5, map-get($fonts, medium-large));
   margin: 0 auto;
+
+  @include hover {
+    @include text-shadow(0 2px 4px rgba(0,0,0,0.25));
+  }
 }
 
 .site-nav__links {

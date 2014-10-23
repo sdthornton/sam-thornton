@@ -1,6 +1,5 @@
 %button {
-  // @extend %font-medium-small;
-  @include transition(all 0.2s ease-in-out);
+  @extend %transition-all;
   background: none;
   border: solid 2px;
   display: inline-block;
