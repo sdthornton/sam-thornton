@@ -1,19 +1,23 @@
 !!!
-%html
+%html.hover
   %head
     = metamagic title: "Samuel Thornton • Front-End Developer & UX Designer • Portland, OR"
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true, async: true
     = csrf_meta_tags
   %body
-    - flash.each do |flash, message|
-      %div{class: "flash flash-#{flash}"}
-        = message
+    .page-wrapper
+      - flash.each do |flash, message|
+        %div{class: "flash flash-#{flash}"}
+          = message
 
-    %header.site-header
-      = render "/shared/navigation"
+      %header.site-header
+        = render "/shared/navigation"
 
-    %main#page_wrapper.page-wrapper
-      = yield
+      %main#main_content.main-content
+        = yield
+
+      %footer.site-footer
+        = render "/shared/footer"
 
     = render "/shared/javascript_methods"

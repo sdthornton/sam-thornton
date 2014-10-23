@@ -1,24 +1,12 @@
 %container {
   @extend %clearfix;
-  background: $white;
   margin: 0 auto;
   max-width: 1152px;
-  padding: 0 rhythm(1.5);
   width: 100%;
 }
 
 .container {
   @extend %container;
-}
-
-.container--full {
-  @extend %container;
-  padding: 0;
-}
-
-.container--cards {
-  @extend .container--full;
-  background: none;
 }
 
 %column-parent {

@@ -1,9 +1,19 @@
 .home-banner {
   background: image-url('portland.jpg') center center no-repeat;
-  background: $marino;
   background-size: cover;
   height: rhythm(16);
   position: relative;
+
+  &:after {
+    background: linear-gradient(
+      135deg,
+      transparentize($mariner, 0.25) 0%,
+      transparentize($trendy, 0.25) 100%);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
 }
 
 .home-banner__title {
@@ -14,6 +24,7 @@
   text-align: center;
   top: 50%;
   width: 100%;
+  z-index: 1;
 }
 
 .home-banner__heading,
@@ -26,23 +37,20 @@
 }
 
 .process {
-  margin-top: rhythm(-2);
+  background: $white;
+  padding: rhythm(2) 0;
 }
 
 .process-items {
-  position: relative;
+  text-align: center;
 }
 
 .process-heading {
-  margin-top: rhythm(1.5);
+  margin-top: rhythm(1);
 }
 
 .process-icon {
-  @include transform(translate(-50%, -50%));
   height: rhythm(3);
-  left: 50%;
-  position: absolute;
-  top: 0;
   width: auto;
 }
 
