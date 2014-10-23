@@ -4,9 +4,8 @@
       Samuel Thornton
     %h3.home-banner__sub-heading
       Creating the world wide web from Portland, Oregon.
-    %a.button--white{ href: "#" }
-      Hire Me
-      %i.ion-paper-airplane.inline-icon
+    =link_to "Hire me <i class='ion-paper-airplane inline-icon'></i>".html_safe,
+      contact_path, class: 'button--white'
 
 %section.process
   .container
