@@ -37,7 +37,6 @@
 }
 
 .process {
-  background: $white;
   padding: rhythm(2) 0;
 }
 
@@ -49,11 +48,91 @@
   margin-top: rhythm(1);
 }
 
-.process-icon {
-  height: rhythm(3);
-  width: auto;
-}
-
 .process-text {
   display: inline-block;
+}
+
+.recent-work {
+  @extend %clearfix;
+  text-align: center;
+  border: solid 2px $white;
+}
+
+%recent-work__item {
+  border: solid 2px $white;
+  float: left;
+  position: relative;
+  width: 25%;
+
+  // &:after {
+  //   @extend %transition-all;
+  //   background: $black;
+  //   content: '';
+  //   height: 96%;
+  //   left: 2%;
+  //   opacity: 0;
+  //   position: absolute;
+  //   top: 2%;
+  //   width: 96%;
+  // }
+  //
+  // @include hover {
+  //   &:after {
+  //     opacity: 0.85;
+  //   }
+  // }
+}
+
+.recent-work__left,
+.recent-work__right {
+  float: left;
+  width: 50%;
+}
+
+.recent-work__item--bespoke {
+  @extend %recent-work__item;
+  background: $chambray image-url('recent-work-logo--bespoke.svg') center center no-repeat;
+  background-size: 320px;
+  height: rhythm(16);
+  width: 100%;
+}
+
+.recent-work__item--cutthechi {
+  @extend %recent-work__item;
+  background: $tomato image-url('recent-work-logo--cutthechi.svg') center center no-repeat;
+  background-size: 180px;
+  height: rhythm(12);
+  width: 100%;
+}
+
+.recent-work__item--iampeople {
+  @extend %recent-work__item;
+  background: $picton image-url('recent-work-logo--iampeople.svg') center center no-repeat;
+  background-size: 240px;
+  height: rhythm(10);
+  width: (100% / 3 * 2);
+}
+
+.recent-work__item--profile {
+  @extend %recent-work__item;
+  background: $jaffa image-url('recent-work-logo--profile.svg') center center no-repeat;
+  background-size: 260px;
+  height: rhythm(6);
+  width: 100%;
+}
+
+.recent-work__item--more {
+  @extend %recent-work__item;
+  height: rhythm(10);
+  width: (100% / 3);
+}
+
+.recent-work__link {
+  @include transform(translate(-50%, -50%));
+  color: $mariner;
+  font-weight: bold;
+  left: 50%;
+  position: absolute;
+  text-decoration: none;
+  top: 50%;
 }
