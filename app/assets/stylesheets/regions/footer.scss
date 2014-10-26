@@ -2,3 +2,13 @@
   padding: rhythm(2) 0;
   text-align: center;
 }
+
+.social-links {
+  margin-bottom: rhythm(0.5);
+}
+
+.social-link {
+  @include adjust-font-size-to(map-get($fonts, medium-large));
+  color: $black;
+  margin: 0 0.5rem;
+}
