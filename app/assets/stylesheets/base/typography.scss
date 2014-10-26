@@ -29,7 +29,7 @@ $fonts: (
     } @elseif ($font == small) {
       margin: 0 0 rhythm(0.5, $size);
     } @else {
-      margin: 0 0 rhythm(1, $size);
+      margin: 0 0 rhythm(2, $size);
     }
   }
 }

@@ -1,12 +1,17 @@
 %container {
   @extend %clearfix;
   margin: 0 auto;
-  max-width: 1152px;
   width: 100%;
 }
 
 .container {
   @extend %container;
+  max-width: 1152px;
+}
+
+.container--small {
+  @extend %container;
+  max-width: 768px;
 }
 
 %column-parent {

@@ -36,8 +36,16 @@
   color: $lt-gray;
 }
 
-.process {
+.tag-line {
+  border-bottom: solid 1px $seashell;
   padding: rhythm(2) 0;
+  text-align: center;
+}
+
+.process {
+  background: $smoke;
+  padding: rhythm(2) 0;
+  text-align: center;
 }
 
 .process-items {
@@ -54,33 +62,24 @@
 
 .recent-work {
   @extend %clearfix;
-  text-align: center;
   border: solid 2px $white;
+  border-top: solid 1px $seashell;
+  padding-top: rhythm(2);
+  text-align: center;
 }
 
 %recent-work__item {
+  @extend %transition-all;
   border: solid 2px $white;
   float: left;
   position: relative;
   width: 25%;
 
-  // &:after {
-  //   @extend %transition-all;
-  //   background: $black;
-  //   content: '';
-  //   height: 96%;
-  //   left: 2%;
-  //   opacity: 0;
-  //   position: absolute;
-  //   top: 2%;
-  //   width: 96%;
-  // }
-  //
-  // @include hover {
-  //   &:after {
-  //     opacity: 0.85;
-  //   }
-  // }
+  @include hover {
+    &:not(.recent-work__item--more) {
+      opacity: 0.5;
+    }
+  }
 }
 
 .recent-work__left,
@@ -92,7 +91,7 @@
 .recent-work__item--bespoke {
   @extend %recent-work__item;
   background: $chambray image-url('recent-work-logo--bespoke.svg') center center no-repeat;
-  background-size: 320px;
+  background-size: 50%;
   height: rhythm(16);
   width: 100%;
 }
@@ -100,7 +99,7 @@
 .recent-work__item--cutthechi {
   @extend %recent-work__item;
   background: $tomato image-url('recent-work-logo--cutthechi.svg') center center no-repeat;
-  background-size: 180px;
+  background-size: 30%;
   height: rhythm(12);
   width: 100%;
 }
@@ -108,7 +107,7 @@
 .recent-work__item--iampeople {
   @extend %recent-work__item;
   background: $picton image-url('recent-work-logo--iampeople.svg') center center no-repeat;
-  background-size: 240px;
+  background-size: 60%;
   height: rhythm(10);
   width: (100% / 3 * 2);
 }
@@ -116,7 +115,7 @@
 .recent-work__item--profile {
   @extend %recent-work__item;
   background: $jaffa image-url('recent-work-logo--profile.svg') center center no-repeat;
-  background-size: 260px;
+  background-size: 40%;
   height: rhythm(6);
   width: 100%;
 }
@@ -128,11 +127,16 @@
 }
 
 .recent-work__link {
+  @extend %transition-all;
   @include transform(translate(-50%, -50%));
-  color: $mariner;
+  color: $tomato;
   font-weight: bold;
   left: 50%;
   position: absolute;
   text-decoration: none;
   top: 50%;
+
+  @include hover {
+    @include text-shadow(0 2px 4px rgba(0,0,0,0.25));
+  }
 }
