@@ -1,14 +1,19 @@
 .container
   %section.social-links
     =link_to '', 'https://github.com/sdthornton', target: '_blank',
-      class: 'ion-social-github social-link', alt: 'See my work on GitHub'
+      class: 'ion-social-github social-link--github',
+      title: 'See my work on GitHub'
     =link_to '', 'https://dribbble.com/samthornton', target: '_blank',
-      class: 'ion-social-dribbble social-link', alt: 'See my work on Dribbble'
+      class: 'ion-social-dribbble social-link--dribbble',
+      title: 'See my work on Dribbble'
     =link_to '', 'https://www.linkedin.com/in/samuelthornton', target: '_blank',
-      class: 'ion-social-linkedin social-link', alt: 'Check me out on LinkedIn'
+      class: 'ion-social-linkedin social-link--linkedin',
+      title: 'Check me out on LinkedIn'
     =link_to '', 'https://twitter.com/samuelthornton', target: '_blank',
-      class: 'ion-social-twitter social-link', alt: 'Follow me on Twitter'
+      class: 'ion-social-twitter social-link--twitter',
+      title: 'Follow me on Twitter'
     =link_to '', 'https://www.facebook.com/sdthornton', target: '_blank',
-      class: 'ion-social-facebook social-link', alt: 'Friend me on Facebook'
+      class: 'ion-social-facebook social-link--facebook',
+      title: 'Friend me on Facebook'
   %small
     &copy; Copyright #{Date.today.year}, Samuel Thornton

@@ -7,8 +7,49 @@
   margin-bottom: rhythm(0.5);
 }
 
-.social-link {
-  @include adjust-font-size-to(map-get($fonts, medium-large));
+%social-link {
+  @extend %transition-all;
+  @include adjust-font-size-to(map-get($fonts, medium-small));
   color: $black;
   margin: 0 0.5rem;
+}
+
+.social-link--github {
+  @extend %social-link;
+
+  @include hover {
+    color: $github;
+  }
+}
+
+.social-link--dribbble {
+  @extend %social-link;
+
+  @include hover {
+    color: $dribbble;
+  }
+}
+
+.social-link--linkedin {
+  @extend %social-link;
+
+  @include hover {
+    color: $linkedin;
+  }
+}
+
+.social-link--twitter {
+  @extend %social-link;
+
+  @include hover {
+    color: $twitter;
+  }
+}
+
+.social-link--facebook {
+  @extend %social-link;
+
+  @include hover {
+    color: $facebook;
+  }
 }
