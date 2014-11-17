@@ -7,20 +7,8 @@
     =link_to "Hire me <i class='ion-paper-airplane inline-icon'></i>".html_safe,
       contact_path, class: 'button--white'
 
-%section.tag-line
-  .container--small
-    I'm a <strong>web developer</strong> and <strong>ux designer</strong>
-    currently living in Portland, Oregon and working for Barclaycard's Bespoke
-    Offers. I'm all about making the web work well—be it shaving precious
-    milliseconds on a page's load time, or making a site accessible on all
-    devices imaginable.
-
-    =link_to "Learn more <i class='ion-person inline-icon'></i>".html_safe,
-      "#", class: 'button'
-
 %section.process
   .container
-    %h2 My process
     .column-parent.process-items
       .column--4.process-item
         =image_tag 'process-icon--consult.svg', class: 'process-icon'
@@ -47,15 +35,31 @@
           I'll handle all the server side deployment and SEO so your site is
           readily found and accessed.
 
+%section.tag-line
+  %p.container--small
+    I'm a <strong>web developer</strong> and <strong>ux designer</strong>
+    currently living in Portland, Oregon and working for Barclaycard's Bespoke
+    Offers. I'm all about making the web work well—be it shaving precious
+    milliseconds on a page's load time, or making a site accessible on all
+    devices imaginable.
+
+  =link_to "Learn more <i class='ion-person inline-icon'></i>".html_safe,
+    "#", class: 'button'
+
 %section.recent-work
   .container
     %h2 Case studies
-  .recent-work__left
-    .recent-work__item--bespoke
-    .recent-work__item--profile
-  .recent-work__right
-    .recent-work__item--cutthechi
-    .recent-work__item--iampeople
-    .recent-work__item--more
-      =link_to "View more <i class='ion-chevron-right inline-icon'></i>".html_safe,
-        "#", class: 'recent-work__link'
+    .recent-work__left
+      .recent-work__item-wrap
+        .recent-work__item--bespoke
+      .recent-work__item-wrap
+        .recent-work__item--profile
+    .recent-work__right
+      .recent-work__item-wrap
+        .recent-work__item--cutthechi
+      .recent-work__item-wrap
+        .recent-work__item--iampeople
+      .recent-work__item-wrap
+        .recent-work__item--more
+          =link_to "More <i class='ion-chevron-right inline-icon'></i>".html_safe,
+            "#", class: 'recent-work__link'

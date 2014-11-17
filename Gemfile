@@ -10,7 +10,7 @@ source 'https://rubygems.org'
 gem 'activerecord-jdbcmysql-adapter', platform: :jruby
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.0.beta2'
+gem 'rails', '~> 4.2.0.beta4'
 
 # Postgresql as DB
 gem 'pg'
@@ -30,7 +30,7 @@ gem 'compass-rails'
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.1'
+gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 4.0.0.beta2'
@@ -87,6 +87,14 @@ group :test do
   gem 'shoulda'
   gem 'mocha', require: false
   # gem 'scss-lint' # Doesn't work until sass-rails is updated, install manually
+end
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0.0.beta4'
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

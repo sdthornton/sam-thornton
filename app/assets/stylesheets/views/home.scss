@@ -37,13 +37,14 @@
 }
 
 .tag-line {
-  border-bottom: solid 1px $seashell;
+  background: $smoke;
   padding: rhythm(2) 0;
   text-align: center;
 }
 
 .process {
-  background: $smoke;
+  background: $white;
+  border-bottom: solid 1px $seashell;
   padding: rhythm(2) 0;
   text-align: center;
 }
@@ -58,27 +59,30 @@
 
 .process-text {
   display: inline-block;
+  text-align: left;
 }
 
 .recent-work {
   @extend %clearfix;
-  border: solid 2px $white;
+  border: solid 0.5rem $white;
   border-top: solid 1px $seashell;
-  padding-top: rhythm(2);
+  padding: rhythm(2) 0;
   text-align: center;
+}
+
+.recent-work__item-wrap {
+  @extend %clearfix;
+  padding: 0.5rem;
 }
 
 %recent-work__item {
   @extend %transition-all;
-  border: solid 2px $white;
   float: left;
   position: relative;
   width: 25%;
 
   @include hover {
-    &:not(.recent-work__item--more) {
-      opacity: 0.5;
-    }
+    @include box-shadow(0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23));
   }
 }
 
