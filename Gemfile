@@ -92,6 +92,8 @@ group :development, :test do
   gem 'web-console', '~> 2.0.0.beta4'
 end
 
+gem 'rails_12factor', group: :production
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
