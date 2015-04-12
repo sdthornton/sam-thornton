@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140224065020) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: true do |t|
+  create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140224065020) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
-  create_table "posts", force: true do |t|
+  create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.string   "url"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140224065020) do
 
   add_index "posts", ["url"], name: "index_posts_on_url", unique: true, using: :btree
 
-  create_table "slugs", force: true do |t|
+  create_table "slugs", force: :cascade do |t|
     t.integer  "post_id"
     t.string   "url"
     t.datetime "created_at"

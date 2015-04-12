@@ -13,3 +13,8 @@
 #     $('.header').css('webkitTransform', translate);
 #   }
 # });
+
+namespace 'Site', (exports) ->
+  class exports.ProccessSVG
+    constructor: ->
+      $('#develop_icon')

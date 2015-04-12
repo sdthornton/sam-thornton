@@ -1,4 +1,5 @@
-@import 'variables';
+@import 'partials/jacket';
+@import 'partials/variables';
 @import 'compass/**/*';
-@import 'mixins';
-@import 'placeholders';
+@import 'partials/mixins';
+@import 'partials/placeholders';

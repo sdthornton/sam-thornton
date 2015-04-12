@@ -50,3 +50,6 @@ public/assets
 
 # Ignore pry config
 .pryrc
+
+# Ignore Vagrant folder
+/.vagrant/
