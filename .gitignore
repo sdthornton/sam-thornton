@@ -53,3 +53,6 @@ public/assets
 
 # Ignore Vagrant folder
 /.vagrant/
+
+# Ignore passenger files
+passenger.*
