@@ -93,6 +93,7 @@ group :development, :test do
 end
 
 gem 'rails_12factor', group: :production
+gem 'newrelic_rpm'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
