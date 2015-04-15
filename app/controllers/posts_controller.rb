@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_filter :authenticate_admin!
+  force_ssl if: :ssl_configured?
 
   def new
     @post = Post.new
@@ -44,10 +45,14 @@ class PostsController < ApplicationController
     redirect_to blog_path
   end
 
-  private
-  
+private
+
     def post_params
       params.require(:post).permit(:title, :content, :url, :snippet)
+    end
+
+    def ssl_configured?
+      !Rails.env.development?
     end
 
 end

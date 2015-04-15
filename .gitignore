@@ -53,3 +53,6 @@ public/assets
 
 # Ignore passenger files
 passenger.*
+
+# Ignore cloudinary files
+.cloudinary.*

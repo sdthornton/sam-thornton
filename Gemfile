@@ -1,12 +1,6 @@
 ruby '2.2.0'
 source 'https://rubygems.org'
 
-# # Use jruby with Ruby 1.9.3
-# ruby '1.9.3', engine: 'jruby', engine_version: '1.7.14'
-
-# gem 'mysql2', platform: :jruby
-# gem 'activerecord-jdbcmysql-adapter', platform: :jruby
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.1'
 
@@ -20,15 +14,12 @@ gem 'pg'
 gem 'haml'
 gem 'haml-rails', group: :development
 
-# Use Sass for stylesheets
-gem 'sass-rails', '~> 5.0.1'
-gem 'compass-rails', '~> 2.0.4'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+group :assets do
+  gem 'sass-rails', '~> 5.0.1'
+  gem 'compass-rails', '~> 2.0.4'
+  gem 'uglifier', '>= 1.3.0'
+  gem 'coffee-rails', '~> 4.1.0'
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 4.0.3'
@@ -54,9 +45,6 @@ gem 'devise', '~> 3.4.1'
 # Has Scope for better scoping
 gem 'has_scope'
 
-# Paperclip for Uploading Files
-gem 'paperclip', '~> 4.2.1'
-
 # Pagination
 gem 'kaminari', '~> 0.16.3'
 
@@ -66,9 +54,10 @@ gem 'metamagic'
 # Factory Girl, no need for fixtures
 gem 'factory_girl_rails', require: false
 
+# Cloudinary for image CDN and image uploading
+gem 'cloudinary'
+
 group :development do
-  gem 'capistrano' # For easy deploys
-  gem 'capistrano-ext' # For easy deploys
   gem 'better_errors', '~> 1.1.0' # Better rails errors
   gem 'brakeman', require: false # Check for security vulnerabilities
   gem 'bullet' # Help reduce number of queries
@@ -89,17 +78,9 @@ group :development, :test do
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0.0.beta4'
+  gem 'web-console', '~> 2.1.2'
 end
 
+# Heroku gems
 gem 'rails_12factor', group: :production
-gem 'newrelic_rpm'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'newrelic_rpm', group: :production
