@@ -45,6 +45,9 @@ output.*
 # Ignore compiled assets
 public/assets
 
+# Ignore build files
+build
+
 # Ignore pry config
 .pryrc
 
@@ -53,3 +56,10 @@ public/assets
 
 # Ignore passenger files
 passenger.*
+
+# Ignore cloudinary files
+.cloudinary.*
+
+# Ignore npm
+npm-debug.log
+/node_modules/
