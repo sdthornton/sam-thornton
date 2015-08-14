@@ -2,13 +2,13 @@
 %html.hover
   %head
     = metamagic title: "Samuel Thornton • Front-End Developer & UX Designer • Portland, OR"
-    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "application", async: true
+    = stylesheet_link_tag "application", media: "all"
     = csrf_meta_tags
   %body
     .page-wrapper
       - flash.each do |flash, message|
-        %div{class: "flash flash-#{flash}"}
+        %div{ class: "flash flash-#{flash}" }
           = message
 
       %header.site-header
@@ -21,4 +21,7 @@
         = render "/shared/footer"
 
     = render "/shared/global_js"
-    = render "/shared/javascript_yield"
+    %script
+      var javascripts = function() { Site.PageMethods = {}; #{yield :javascript} };
+      var runJS = function() { window.Site && Site.javascriptReady ? javascripts() : setTimeout(runJS, 100) };
+      runJS();

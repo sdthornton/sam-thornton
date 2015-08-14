@@ -1,4 +1,0 @@
-%script
-  var javascripts = function() { Site.PageMethods = {}; $(window).off(); $('body').off(); #{yield :javascript} };
-  var runJS = function() { window.Site && Site.javascriptReady ? javascripts() : setTimeout(runJS, 100) };
-  runJS();

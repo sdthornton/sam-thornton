@@ -1,16 +1,18 @@
 .site-footer {
+  background: color(dk-gray);
+  color: white;
   padding: rhythm(2) 0;
   text-align: center;
 }
 
 .social-links {
-  margin-bottom: rhythm(0.5);
+  margin-bottom: rhythm(1);
 }
 
 %social-link {
   @extend %transition-all;
-  @include adjust-font-size-to(map-get($fonts, medium-small));
-  color: $black;
+  @extend %font-small;
+  color: white;
   margin: 0 0.5rem;
 }
 
@@ -18,7 +20,7 @@
   @extend %social-link;
 
   @include hover {
-    color: $github;
+    color: color(github);
   }
 }
 
@@ -26,7 +28,7 @@
   @extend %social-link;
 
   @include hover {
-    color: $dribbble;
+    color: color(dribbble);
   }
 }
 
@@ -34,7 +36,7 @@
   @extend %social-link;
 
   @include hover {
-    color: $linkedin;
+    color: color(linkedin);
   }
 }
 
@@ -42,7 +44,7 @@
   @extend %social-link;
 
   @include hover {
-    color: $twitter;
+    color: color(twitter);
   }
 }
 
@@ -50,6 +52,6 @@
   @extend %social-link;
 
   @include hover {
-    color: $facebook;
+    color: color(facebook);
   }
 }

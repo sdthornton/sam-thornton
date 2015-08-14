@@ -14,19 +14,6 @@ gem 'pg'
 gem 'haml'
 gem 'haml-rails', group: :development
 
-group :assets do
-  gem 'sass-rails', '~> 5.0.1'
-  gem 'compass-rails', '~> 2.0.4'
-  gem 'uglifier', '>= 1.3.0'
-  gem 'coffee-rails', '~> 4.1.0'
-end
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails', '~> 4.0.3'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-gem 'nprogress-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -57,8 +44,10 @@ gem 'factory_girl_rails', require: false
 # Cloudinary for image CDN and image uploading
 gem 'cloudinary'
 
+# Markdown for Blog Writing
+gem 'redcarpet'
+
 group :development do
-  gem 'better_errors', '~> 1.1.0' # Better rails errors
   gem 'brakeman', require: false # Check for security vulnerabilities
   gem 'bullet' # Help reduce number of queries
   gem 'parallel_tests'

@@ -1,2 +1,6 @@
 - content_for :javascript do
-  Site.PageMethods.runNoHoverOnScroll = new Site.NoHoverOnScroll();
+  if (!window.Site.GlobalMethods) {
+  Site.GlobalMethods = {};
+  Site.GlobalMethods.runNoHoverOnScroll = new Site.NoHoverOnScroll();
+  Site.GlobalMethods.runFontLoader = new Site.FontLoader({ md5: '298f4fe41355a08c736d4ae4c6c9b544', font: 'lato' });
+  }

@@ -1,0 +1,54 @@
+@mixin establish-baseline($font-size: $base-font-size, $line-height: $base-line-height) {
+  $relative-font-size: $font-size / 16px * 100%;
+  font-size: $relative-font-size;
+  line-height: $line-height;
+}
+
+@mixin retina {
+  @media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
+    @content;
+  }
+}
+
+@mixin background-image($url, $size, $position:0 0, $color:transparent, $repeat:no-repeat) {
+  background: $color url('#{$url}.png') $position $repeat;
+  background-size: $size;
+
+  @include retina {
+    background-image: url('#{$url}@2x.png');
+  }
+}
+
+@mixin hover {
+  .hover & {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+
+  @-ms-keyframes $animation-name {
+    @content;
+  }
+
+  @-o-keyframes $animation-name {
+    @content;
+  }
+
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+@mixin transition-visibility {
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}

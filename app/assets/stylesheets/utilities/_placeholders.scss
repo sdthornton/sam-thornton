@@ -1,0 +1,61 @@
+%clearfix {
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+%hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+%visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+%visuallyhidden {
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+%display-block {
+  display: block;
+}
+
+%display-inline {
+  display: inline-block;
+}
+
+%float-left {
+  float: left;
+}
+
+%float-right {
+  float: right;
+}
+
+%transition-all {
+  @extend %use-gpu;
+
+  .hover & {
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+%content-box {
+  box-sizing: content-box;
+}
+
+%use-gpu {
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translate3d(0,0,0);
+}

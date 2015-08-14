@@ -6,53 +6,41 @@
 
 .container {
   @extend %container;
-  max-width: 1152px;
+  max-width: 1104px;
 }
 
 .container--small {
   @extend %container;
-  max-width: 768px;
+  max-width: 560px;
 }
 
-%column-parent {
-  @include display-flex;
-  @include flex-direction(row);
-  @include flex-wrap(wrap);
-  margin-left: -2%;
+%row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.column-parent {
-  @extend %column-parent;
+.row {
+  @extend %row;
 }
 
 %column {
   @extend %clearfix;
-  float: left;
-  margin-left: 2%;
   min-height: 1px;
+  padding: 0 1rem;
 }
 
-@for $i from 2 through 5 {
-  $width: ((100 - $i * 2) / $i) / 100 * 100%;
+@for $i from 1 through 12 {
+  $width: $i * (100/12) * 1%;
 
   .column--#{$i} {
     @extend %column;
     width: $width;
   }
-
-  @for $x from 2 through $i {
-    $x-width: $width * $x + (2% * ($x - 1));
-
-    .column--#{$i}--#{$x} {
-      @extend %column;
-      width: $x-width;
-    }
-  }
 }
 
 .card-item {
-  // @include box-shadow(0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.10));
-  background: $white;
+  background: white;
   padding: rhythm(1);
   position: relative;
   text-align: center;

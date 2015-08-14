@@ -1,50 +1,48 @@
 %section.home-banner
   .home-banner__title
-    %h1.home-banner__heading.large-heading
+    %h1.home-banner__heading.font-xlarge
       Samuel Thornton
     %h3.home-banner__sub-heading
       Creating the world wide web from Portland, Oregon.
-    =link_to "Hire me <i class='ion-paper-airplane inline-icon'></i>".html_safe,
-      contact_path, class: 'button--white'
-
-%section.process
-  .container
-    .column-parent.process-items
-      .column--4.process-item
-        =image_tag 'process-icon--consult.svg', class: 'process-icon'
-        %h5.process-heading Consult
-        %span.process-text
-          I'll work with you to fully explore your needs and create usable and
-          sustainable solutions.
-      .column--4.process-item
-        =image_tag 'process-icon--design.svg', class: 'process-icon'
-        %h5.process-heading Design
-        %span.process-text
-          I'll create a brand and design that, more than just looks
-          good, tells a story about who you are.
-      .column--4.process-item
-        =image_tag 'process-icon--develop.svg', class: 'process-icon'
-        %h5.process-heading Develop
-        %span.process-text
-          I'll code a smoothly functioning, fully responsive site, using
-          modern tools and best-practices.
-      .column--4.process-item
-        =image_tag 'process-icon--deploy.svg', class: 'process-icon'
-        %h5.process-heading Deploy
-        %span.process-text
-          I'll handle all the server side deployment and SEO so your site is
-          readily found and accessed.
 
 %section.tag-line
   %p.container--small
-    I'm a <strong>web developer</strong> and <strong>ux designer</strong>
-    currently living in Portland, Oregon and working for Barclaycard's Bespoke
-    Offers. I'm all about making the web work well—be it shaving precious
-    milliseconds on a page's load time, or making a site accessible on all
+    I&rsquo;m a <strong>full-stack web developer</strong> with a preference for
+    Ruby on Rails, living in Portland, Oregon, and working for Barclaycard's
+    Bespoke Offers. I'm all about making the web work well–from shaving precious
+    milliseconds on a page&rsquo;s load time to making a site accessible on all
     devices imaginable.
 
-  =link_to "Learn more <i class='ion-person inline-icon'></i>".html_safe,
-    "#", class: 'button'
+  =link_to "Hire me <i class='ion-paper-airplane inline-icon'></i>".html_safe,
+    contact_path, class: 'button'
+
+%section.process
+  .container
+    .row.process-items
+      .column--3.process-item
+        =image_tag 'process-icon--consult.svg', class: 'process-icon'
+        %h4.process-heading Consult
+        %span.process-text
+          I'll work with you to fully explore your needs and create usable and
+          sustainable solutions.
+      .column--3.process-item
+        =image_tag 'process-icon--design.svg', class: 'process-icon'
+        %h4.process-heading Design
+        %span.process-text
+          I'll create a brand and design that, more than just looks
+          good, tells a story about who you are.
+      .column--3.process-item
+        =image_tag 'process-icon--develop.svg', class: 'process-icon'
+        %h4.process-heading Develop
+        %span.process-text
+          I'll code a smoothly functioning, fully responsive site, using
+          modern tools and best-practices.
+      .column--3.process-item
+        =image_tag 'process-icon--deploy.svg', class: 'process-icon'
+        %h4.process-heading Deploy
+        %span.process-text
+          I'll handle all the server side deployment and SEO so your site is
+          readily found and accessed.
 
 -# %section.recent-work
 -#   .container

@@ -1,33 +1,25 @@
-@include jacket(crucial) {
-  body {
-    background: #000 !important;
-  }
-}
-
 .home-banner {
-  background: image-url('portland.jpg') center center no-repeat;
+  background: url('portland.jpg') center center no-repeat;
   background-size: cover;
-  height: rhythm(16);
+  height: rhythm(15);
   position: relative;
 
   &:after {
-    background: linear-gradient(
-      135deg,
-      transparentize($mariner, 0.25) 0%,
-      transparentize($trendy, 0.25) 100%);
+    background: color(blue);
     content: '';
     height: 100%;
+    opacity: 0.85;
     position: absolute;
     width: 100%;
   }
 }
 
 .home-banner__title {
-  @include transform(translateY(-50%));
-  color: $white;
+  color: white;
   padding: 0 rhythm(2);
   position: absolute;
   text-align: center;
+  transform: translateY(-50%);
   top: 50%;
   width: 100%;
   z-index: 1;
@@ -35,118 +27,24 @@
 
 .home-banner__heading,
 .home-banner__sub-heading {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .home-banner__sub-heading {
-  color: $lt-gray;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
 }
 
 .tag-line {
-  background: $smoke;
   padding: rhythm(2) 0;
   text-align: center;
 }
 
 .process {
-  background: $white;
-  border-bottom: solid 1px $seashell;
   padding: rhythm(2) 0;
   text-align: center;
 }
 
 .process-items {
   text-align: center;
-}
-
-.process-heading {
-  margin-top: rhythm(1);
-}
-
-.process-text {
-  display: inline-block;
-  text-align: left;
-}
-
-.recent-work {
-  @extend %clearfix;
-  border: solid 0.5rem $white;
-  border-top: solid 1px $seashell;
-  padding: rhythm(2) 0;
-  text-align: center;
-}
-
-.recent-work__item-wrap {
-  @extend %clearfix;
-  padding: 0.5rem;
-}
-
-%recent-work__item {
-  @extend %transition-all;
-  float: left;
-  position: relative;
-  width: 25%;
-
-  @include hover {
-    @include box-shadow(0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23));
-  }
-}
-
-.recent-work__left,
-.recent-work__right {
-  float: left;
-  width: 50%;
-}
-
-.recent-work__item--bespoke {
-  @extend %recent-work__item;
-  background: $chambray image-url('recent-work-logo--bespoke.svg') center center no-repeat;
-  background-size: 50%;
-  height: rhythm(16);
-  width: 100%;
-}
-
-.recent-work__item--cutthechi {
-  @extend %recent-work__item;
-  background: $tomato image-url('recent-work-logo--cutthechi.svg') center center no-repeat;
-  background-size: 30%;
-  height: rhythm(12);
-  width: 100%;
-}
-
-.recent-work__item--iampeople {
-  @extend %recent-work__item;
-  background: $picton image-url('recent-work-logo--iampeople.svg') center center no-repeat;
-  background-size: 60%;
-  height: rhythm(10);
-  width: (100% / 3 * 2);
-}
-
-.recent-work__item--profile {
-  @extend %recent-work__item;
-  background: $jaffa image-url('recent-work-logo--profile.svg') center center no-repeat;
-  background-size: 40%;
-  height: rhythm(6);
-  width: 100%;
-}
-
-.recent-work__item--more {
-  @extend %recent-work__item;
-  height: rhythm(10);
-  width: (100% / 3);
-}
-
-.recent-work__link {
-  @extend %transition-all;
-  @include transform(translate(-50%, -50%));
-  color: $tomato;
-  font-weight: bold;
-  left: 50%;
-  position: absolute;
-  text-decoration: none;
-  top: 50%;
-
-  @include hover {
-    @include text-shadow(0 2px 4px rgba(0,0,0,0.25));
-  }
 }

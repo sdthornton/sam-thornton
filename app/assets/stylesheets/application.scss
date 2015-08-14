@@ -1,15 +1,13 @@
-@charset 'UTF-8';
-/*!  Force output of above line by adding a unicode character. ♫ */
+@import 'normalize';
 
 // Utilities
-@import 'utilities/*';
+@import 'utilities/manifest';
 
-// Vendor Assets
-@import 'nprogress';
-@import 'ionicons';
+// Global
+@import 'global/*';
 
 // Stylesheets
-@import 'base/*';
+@import 'ionicons';
 @import 'modules/*';
 @import 'regions/*';
-@import 'views/home';
+@import 'views/*';
