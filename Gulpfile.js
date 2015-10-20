@@ -38,7 +38,8 @@ includePaths = {
 watchPaths = {
   js: ['app/assets/javascripts/**/*.js', 'vendor/assets/javascripts/**.*.js'],
   scss: ['app/assets/stylesheets/**/*.scss', 'vendor/assets/stylesheets/**/*.scss'],
-  img: ['app/assets/images/**/*']
+  img: ['app/assets/images/**/*'],
+  font: ['app/assets/fonts/**/*', 'vendor/assets/fonts/**/*']
 };
 
 gulp.task('default', ['build']);
@@ -60,18 +61,18 @@ gulp.task('compile-scss', function() {
     .pipe(gulp.dest(assetPath));
 });
 
-gulp.task('compile-es6', function() {
-  return gulp.src(sources.js)
-    .pipe(sourcemaps.init())
-    .pipe(include())
-    .pipe(babel({
-      loose: 'all' }))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(buildPath))
-    .pipe(gulp.dest(assetPath));
-});
+// gulp.task('compile-es6', function() {
+//   return gulp.src(sources.js)
+//     .pipe(sourcemaps.init())
+//     .pipe(include())
+//     .pipe(babel({
+//       loose: 'all' }))
+//     .pipe(sourcemaps.write())
+//     .pipe(gulp.dest(buildPath))
+//     .pipe(gulp.dest(assetPath));
+// });
 
-gulp.task('js', function() {
+gulp.task('compile-js', function() {
   var stream = browserify(sources.js, { debug: true })
     .bundle()
     .pipe(source('application.js'))
@@ -93,12 +94,6 @@ gulp.task('compile-images', function() {
     .pipe(gulp.dest(buildPath))
     .pipe(gulp.dest(assetPath));
 });
-
-// gulp.task('watch', ['watch-scss', 'watch-es6']);
-//
-// gulp.task('watch-scss', function() {
-//   gulp.watch(watchPaths.scss, ['compile-scss']);
-// });
 
 gulp.task('cache-bust', function() {
   var revAll = new RevAll();
@@ -143,4 +138,22 @@ function cleanUp(keepQuantity) {
 gulp.task('clean-up', function() {
   return gulp.src('public/assets/**/*', { read: false })
     .pipe(cleanUp(2));
+});
+
+gulp.task('watch', ['watch-scss', 'watch-js', 'watch-images', 'watch-fonts']);
+
+gulp.task('watch-scss', function() {
+  return gulp.watch(watchPaths.scss, ['compile-scss']);
+});
+
+gulp.task('watch-js', function() {
+  return gulp.watch(watchPaths.js, ['compile-js']);
+});
+
+gulp.task('watch-images', function() {
+  return gulp.watch(watchPaths.img, ['compile-images']);
+});
+
+gulp.task('watch-fonts', function() {
+  return gulp.watch(watchPaths.fonts, ['compile-fonts']);
 });
