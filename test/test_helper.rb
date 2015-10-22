@@ -1,21 +1,10 @@
-ENV["RAILS_ENV"] ||= "test"
+ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require 'pry'
-require 'factory_girl'
-require 'mocha/setup'
-FactoryGirl.find_definitions
 
 class ActiveSupport::TestCase
-  ActiveRecord::Migration.check_pending!
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  include FactoryGirl::Syntax::Methods
-end
-
-class ActionController::TestCase
-  include Devise::TestHelpers
-  include FactoryGirl::Syntax::Methods
-  include Warden::Test::Helpers
-  Warden.test_mode!
 end

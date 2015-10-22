@@ -1,5 +1,0 @@
-#comments
-  #disqus_thread
-
-- content_for :javascript do
-  Site.PageMethods.runDisqus = new Site.Disqus('#{params[:url] || request.original_url}', '#{request.original_url}');

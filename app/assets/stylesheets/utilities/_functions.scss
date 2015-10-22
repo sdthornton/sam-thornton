@@ -1,4 +1,0 @@
-@function rhythm($lines: 1, $offset: 0) {
-  $rhythm: ($lines * $base-line-height - $offset) * 1rem;
-  @return $rhythm;
-}
