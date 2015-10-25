@@ -1,11 +1,13 @@
 class ApplicationController < ActionController::API
   include AbstractController::Translation
 
-  before_action :authenticate_user_from_token!
+  # force_ssl if: :ssl_configured?
+
+  before_action :authenticate_admin_from_token!
 
   respond_to :json
 
-  def authenticate_user_from_token!
+  def authenticate_admin_from_token!
     auth_token = request.headers['Authorization']
     if auth_token
       authenticate_with_auth_token auth_token
@@ -19,11 +21,11 @@ private
   def authenticate_with_auth_token(auth_token)
     return authentication_error unless auth_token.include?(':')
 
-    user_id = auth_token.split(':').first
-    user = User.where(id: user_id).first
+    admin_id = auth_token.split(':').first
+    admin = Admin.where(id: admin_id).first
 
-    if user && Devise.secure_compare(user.access_token, auth_token)
-      sign_in user, store: false
+    if admin && Devise.secure_compare(admin.access_token, auth_token)
+      sign_in admin, store: false
     else
       authentication_error
     end

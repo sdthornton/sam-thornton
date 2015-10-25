@@ -1,0 +1,52 @@
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Ignore Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+# Ignore Environment normalisation:
+/.bundle/
+/lib/bundler/man/
+
+# Ignore system files
+.DS_Store
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Ignore Brakeman output
+output.*
+
+# Ignore compiled assets
+public/assets
+
+# Ignore pry config
+.pryrc
+
+# Ignore Vagrant folder
+/.vagrant/
+
+# Ignore passenger files
+passenger.*
+
+# Ignore cloudinary files
+.cloudinary.*

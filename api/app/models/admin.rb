@@ -3,16 +3,11 @@ class Admin < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :validatable
 
-  before_create :set_username
-  after_create :update_access_token!
-
   validates :email, presence: true
 
-private
+  after_create :update_access_token!
 
-  def set_username
-    self.username = self.email
-  end
+private
 
   def update_access_token!
     self.access_token = "#{self.id}:#{Devise.friendly_token}"

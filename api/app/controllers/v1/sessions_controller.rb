@@ -1,12 +1,10 @@
 module V1
   class SessionsController < ApplicationController
-    skip_before_action :authenticate_user_from_token!
+    skip_before_action :authenticate_admin_from_token!
 
     def create
-      @admin = Admin.find_for_database_authentication(email: params[:username])
-      puts 'foo'
+      @admin = Admin.find_for_database_authentication(email: params[:email])
       return invalid_login_attempt unless @admin
-      puts 'bar'
 
       if @admin.valid_password?(params[:password])
         sign_in :admin, @admin
