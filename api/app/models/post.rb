@@ -14,15 +14,10 @@ class Post < ActiveRecord::Base
   # has_many :slugs, dependent: :destroy, inverse_of: :post
 
   before_validation :build_url
-  before_save :set_category
   # before_save :build_slug
 
   def build_url
     self.url = generate_url
-  end
-
-  def set_category
-    self.category = 'tech' unless category.present?
   end
 
   def build_slug

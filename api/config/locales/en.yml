@@ -1,4 +1,4 @@
 en:
   unauthorized: 'You are not authorized.'
   sessions_controller:
-    invalid_login_attempt: 'Sorry, but your login details appear incorrect.'
+    invalid_login_attempt: 'Sorry, but your login details appear incorrect'

@@ -6,3 +6,5 @@
 
 # Ignore Mac files
 .DS_Store
+*.log
+.keep
