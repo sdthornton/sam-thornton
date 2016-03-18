@@ -57,7 +57,9 @@ module V1
     end
 
     def post_params
-      params.require(:post).permit(:title, :body, :category, :url, :snippet)
+      params
+        .require(:post)
+        .permit(:title, :body, :category, :url, :snippet, :tag_list)
     end
 
   end

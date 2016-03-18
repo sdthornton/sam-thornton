@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'tech' => 'posts#tech', as: 'posts_tech'
     resources :posts, except: [:index, :new, :show]
     get 'posts/:ref' => 'posts#show', as: 'show_post'
-    post 'contact' => 'contact#send', as: 'contact'
+    post 'contact' => 'contact#deliver', as: 'contact'
 
   end
 end

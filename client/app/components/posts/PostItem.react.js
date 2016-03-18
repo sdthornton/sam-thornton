@@ -9,13 +9,23 @@ export default class PostItem extends React.Component {
     post: React.PropTypes.object.isRequired
   }
 
+  tagify(tag) {
+    console.log(tag);
+    return `#${tag}`;
+  }
+
   render() {
-    const { id, title, body, category, created_at } = this.props.post;
+    const { id, title, body, category, created_at, tag_list } = this.props.post;
 
     return(
       <article>
         <h1>{title}</h1>
         <strong>Posted under {category}</strong><br />
+        <div>
+          {tag_list.map(tag => {
+            return <a href="#">{this.tagify(tag)}</a>
+          })}
+        </div>
         <em>Written {moment(created_at).fromNow()}</em><br /><br />
         <div dangerouslySetInnerHTML={{ __html: markItUp(body) }} />
       </article>

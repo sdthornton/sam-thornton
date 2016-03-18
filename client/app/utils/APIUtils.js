@@ -39,7 +39,6 @@ class APIUtils {
       .send({ message: message })
       .set('Accept', 'application/json')
       .end(function(error, res) {
-        console.log(error);
         console.log(res);
         if (res) {
           if (res.error) {

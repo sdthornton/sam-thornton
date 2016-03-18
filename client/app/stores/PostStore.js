@@ -13,6 +13,7 @@ const Post = Immutable.Record({
   created_at: undefined,
   id: undefined,
   title: "",
+  tag_list: [],
   url: undefined
 });
 
