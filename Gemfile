@@ -16,10 +16,6 @@ gem 'passenger', '>= 5.0.4'
 # Postgresql as DB
 gem 'pg'
 
-# Use HAML for markup
-gem 'haml'
-gem 'haml-rails', group: :development
-
 # Use Sass for stylesheets
 gem 'sass-rails', '~> 5.0.5'
 
