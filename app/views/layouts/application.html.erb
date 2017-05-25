@@ -17,6 +17,25 @@
       padding: 0 1rem;
     }
 
+    body:before,
+    body:after {
+      box-shadow: 0 0 50px rgba(0,0,0,0.15);
+      content: "";
+      height: 320px;
+      position: absolute;
+      width: 640px;
+    }
+
+    body:before {
+      left: 0;
+      top: 0;
+    }
+
+    body:after {
+      right: 0;
+      top: 448px;
+    }
+
     @media only screen and (max-width: 768px) { html { font-size: 150%; } }
     @media only screen and (max-width: 480px) { html { font-size: 125% } }
   </style>
